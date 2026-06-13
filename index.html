@@ -4,607 +4,749 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>SDR Inteligente via WhatsApp — Automatrix × GVG</title>
-<meta name="description" content="Proposta comercial: SDR IA 24/7 via WhatsApp para GVG. R$8.000 setup · R$3.000/mês · GO LIVE em 30 dias."/>
+<meta name="description" content="SDR IA 24/7 via WhatsApp para GVG. R$8k setup · R$3k/mês · GO LIVE 30 dias."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-:root{
-  --bg:#07100a;--bg2:#0c160e;--surface:#121d14;--surface2:#1a2a1c;
-  --border:#1e2e20;--border2:#263529;
-  --green:#22c55e;--green-l:#4ade80;--green-d:#16a34a;
-  --green-glow:rgba(34,197,94,.18);--green-glow2:rgba(34,197,94,.08);
-  --white:#edfaef;--gray:#7d9480;--gray-l:#b8ccbb;--gray-d:#4a5e4c;
-  --yellow:#fbbf24;--orange:#f97316;--red:#f87171;--blue:#60a5fa;--purple:#a78bfa;
-  --font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;--font-mono:'JetBrains Mono',monospace;
-  --r:12px;--r-sm:8px;
-}
+/* ─── RESET + VARS ───────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--green-d);border-radius:99px}
-body{background:var(--bg);color:var(--white);font-family:var(--font-body);line-height:1.6;overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='.6' fill='%2322c55e' opacity='.07'/%3E%3C/svg%3E") repeat;pointer-events:none;z-index:0}
-
+html{scroll-behavior:smooth;font-size:16px}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:#04080a}::-webkit-scrollbar-thumb{background:#22c55e40;border-radius:9px}
+:root{
+  --ink:#04080a;--bg:#060e09;--s1:#0c1910;--s2:#111e14;
+  --b1:#182b1c;--b2:#1f3624;
+  --g:#22c55e;--gl:#4ade80;--gd:#15803d;--gx:#052e16;
+  --gg:rgba(34,197,94,.2);--gg2:rgba(34,197,94,.07);
+  --w:#edfaf1;--mu:#5a7d61;--ml:#96b59b;--md:#c5dbc8;
+  --ye:#fbbf24;--or:#f97316;--re:#f87171;--bl:#60a5fa;--pu:#a78bfa;
+  --fh:'Bricolage Grotesque',sans-serif;
+  --fb:'DM Sans',sans-serif;
+  --fm:'JetBrains Mono',monospace;
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+body{background:var(--bg);color:var(--w);font-family:var(--fb);overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img{display:block}
 
-.wrap{max-width:1060px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
-section{padding:96px 0;border-top:1px solid var(--border)}
-
-/* TYPOGRAPHY */
-.eyebrow{font-family:var(--font-mono);font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--green);display:inline-flex;align-items:center;gap:8px}
-.eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--green)}
-h1{font-family:var(--font-head);font-weight:800;font-size:clamp(3.2rem,8vw,7rem);line-height:1.0;letter-spacing:-.03em}
-h2{font-family:var(--font-head);font-weight:800;font-size:clamp(2rem,4vw,3.2rem);line-height:1.08;letter-spacing:-.02em}
-h3{font-family:var(--font-head);font-weight:700;font-size:1.05rem;line-height:1.3}
-p{color:var(--gray-l);font-size:.93rem;line-height:1.7}
-strong{color:var(--white);font-weight:600}
-
-/* BADGES */
-.tag{display:inline-block;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);color:var(--green-l);font-family:var(--font-mono);font-size:.65rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:99px}
-
-/* BUTTONS */
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:var(--r-sm);font-weight:600;font-size:.9rem;transition:all .2s;cursor:pointer;border:none;font-family:var(--font-body)}
-.btn-primary{background:var(--green);color:#050e07;box-shadow:0 0 30px rgba(34,197,94,.3)}
-.btn-primary:hover{background:var(--green-l);transform:translateY(-2px);box-shadow:0 4px 40px rgba(34,197,94,.4)}
-.btn-ghost{background:transparent;color:var(--white);border:1px solid var(--border2)}
-.btn-ghost:hover{border-color:var(--green);color:var(--green)}
-
-/* SCROLL REVEAL */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1)}
-.reveal.visible{opacity:1;transform:none}
-.reveal-delay-1{transition-delay:.1s}
-.reveal-delay-2{transition-delay:.2s}
-.reveal-delay-3{transition-delay:.3s}
-.reveal-delay-4{transition-delay:.4s}
-
-/* ═══ NAV ═══════════════════════════════════════════════════ */
-nav{position:sticky;top:0;z-index:100;background:rgba(7,16,10,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{display:flex;align-items:center;gap:10px}
-.nav-icon{width:34px;height:34px;background:var(--green);border-radius:7px;display:grid;place-items:center;font-family:var(--font-head);font-weight:800;font-size:1rem;color:#050e07;box-shadow:0 0 16px rgba(34,197,94,.4)}
-.nav-name{font-family:var(--font-head);font-weight:800;font-size:.85rem;letter-spacing:.06em;color:var(--white)}
-.nav-sub{font-family:var(--font-mono);font-size:.6rem;color:var(--gray);letter-spacing:.06em}
-.nav-badge{font-family:var(--font-mono);font-size:.7rem;font-weight:500;color:var(--gray-l);background:var(--surface);border:1px solid var(--border2);padding:5px 12px;border-radius:var(--r-sm)}
-.nav-links{display:flex;gap:24px}
-.nav-links a{font-size:.82rem;color:var(--gray);transition:color .2s}
-.nav-links a:hover{color:var(--green)}
-@media(max-width:640px){.nav-links{display:none}}
-
-/* ═══ HERO ══════════════════════════════════════════════════ */
-#hero{border:none;padding:0;min-height:100svh;display:grid;grid-template-rows:auto 1fr auto;position:relative;overflow:hidden}
-.hero-glow{position:absolute;top:-20%;left:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(34,197,94,.12) 0%,transparent 70%);pointer-events:none;animation:pulse-glow 4s ease-in-out infinite}
-.hero-glow2{top:20%;right:-10%;left:auto;width:400px;height:400px;background:radial-gradient(circle,rgba(34,197,94,.07) 0%,transparent 70%);animation-delay:2s}
-@keyframes pulse-glow{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.1)}}
-
-.hero-inner{padding:80px 24px 64px;max-width:1060px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:40px;position:relative;z-index:1}
-.hero-pre{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.hero-client{font-family:var(--font-mono);font-size:.72rem;color:var(--gray);border:1px solid var(--border2);padding:6px 14px;border-radius:99px;display:inline-flex;align-items:center;gap:6px}
-.hero-client::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 1.4s ease-in-out infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-
-.hero-title{display:flex;flex-direction:column;gap:4px}
-.hero-t1{color:var(--white)}
-.hero-t2{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.hero-t2-text{color:var(--green);text-shadow:0 0 60px rgba(34,197,94,.5)}
-.wa-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.3);padding:4px 14px 4px 8px;border-radius:99px;vertical-align:middle;margin-left:4px}
-.wa-badge img{width:22px;height:22px;filter:drop-shadow(0 0 8px rgba(37,211,102,.6))}
-.wa-badge span{font-family:var(--font-mono);font-size:.72rem;color:#25d366;letter-spacing:.04em}
-
-.hero-sub{font-size:1.05rem;color:var(--gray-l);max-width:520px;line-height:1.65}
-
-/* Stats strip */
-.hero-stats{display:flex;gap:0;background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);overflow:hidden;width:fit-content}
-.stat{padding:20px 32px;display:flex;flex-direction:column;gap:4px;border-right:1px solid var(--border2)}
-.stat:last-child{border-right:none}
-.stat-val{font-family:var(--font-head);font-weight:800;font-size:1.6rem;color:var(--white);line-height:1}
-.stat-val .num{color:var(--green)}
-.stat-lbl{font-family:var(--font-mono);font-size:.62rem;color:var(--gray);letter-spacing:.08em;text-transform:uppercase}
-@media(max-width:700px){.hero-stats{flex-wrap:wrap;width:100%}.stat{flex:1 1 calc(50% - 1px)}}
-
-.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
-
-/* ═══ VSL ════════════════════════════════════════════════════ */
-#vsl{padding:80px 0;background:var(--bg2)}
-.vsl-wrap{max-width:860px;margin:0 auto;padding:0 24px}
-.vsl-header{text-align:center;margin-bottom:36px}
-.vsl-header h2{margin-top:12px}
-.vsl-container{background:var(--surface);border:2px dashed var(--border2);border-radius:var(--r);aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;position:relative;overflow:hidden;transition:border-color .3s}
-.vsl-container:hover{border-color:var(--green)}
-.vsl-container::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--green-glow2) 0%,transparent 60%)}
-.vsl-play{width:72px;height:72px;border-radius:50%;background:rgba(34,197,94,.15);border:2px solid rgba(34,197,94,.4);display:grid;place-items:center;animation:pulse-ring 2s ease-in-out infinite}
-@keyframes pulse-ring{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.3)}50%{box-shadow:0 0 0 16px rgba(34,197,94,0)}}
-.vsl-play svg{color:var(--green);margin-left:4px}
-.vsl-container h3{font-family:var(--font-head);font-size:1.1rem;color:var(--white)}
-.vsl-container p{font-size:.85rem;color:var(--gray)}
-
-/* ═══ PLANO ══════════════════════════════════════════════════ */
-.section-head{display:flex;flex-direction:column;gap:14px;margin-bottom:52px}
-.section-head h2{margin:0}
-.section-head p{max-width:480px}
-
-.pillars{display:grid;gap:16px}
-.pillar-card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:32px;display:grid;grid-template-columns:64px 1fr;gap:24px;transition:border-color .25s,background .25s,transform .25s}
-.pillar-card:hover{border-color:var(--green);background:var(--surface2);transform:translateX(4px)}
-.pillar-num{width:64px;height:64px;background:var(--green);border-radius:50%;display:grid;place-items:center;font-family:var(--font-head);font-weight:800;font-size:1rem;color:#050e07;flex-shrink:0;box-shadow:0 0 24px rgba(34,197,94,.35);align-self:start}
-.pillar-card h3{font-size:1.15rem;color:var(--white);margin-bottom:10px}
-.pillar-card p{font-size:.93rem}
-
-/* ═══ FEATURES ═══════════════════════════════════════════════ */
-#funcionalidades{background:var(--bg2)}
-.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
-.feat{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:24px;border-left:3px solid transparent;transition:border-left-color .25s,background .25s;display:flex;flex-direction:column;gap:12px}
-.feat:hover{border-left-color:var(--green);background:var(--surface2)}
-.feat-top{display:flex;align-items:center;justify-content:space-between}
-.feat-label{font-family:var(--font-mono);font-size:.62rem;font-weight:500;color:var(--green);letter-spacing:.1em;text-transform:uppercase}
-.feat-icon{width:32px;height:32px;border-radius:6px;overflow:hidden;display:grid;place-items:center;background:var(--surface2)}
-.feat-icon img{width:20px;height:20px;object-fit:contain}
-.feat h3{font-size:.95rem;color:var(--white);margin:0}
-.feat p{font-size:.84rem;margin:0}
-
-/* ═══ ARQUITETURA ════════════════════════════════════════════ */
-.arch-wrap{position:relative}
-
-/* Flow diagram */
-.flow-diagram{display:flex;flex-direction:column;gap:0;align-items:center}
-
-/* Row */
-.flow-row{display:flex;align-items:center;gap:0;justify-content:center;width:100%}
-
-/* Node */
-.flow-node{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:100px}
-.flow-box{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r-sm);padding:14px 18px;display:flex;flex-direction:column;align-items:center;gap:8px;width:110px;transition:border-color .25s,box-shadow .25s;position:relative}
-.flow-box:hover{border-color:var(--green);box-shadow:0 0 20px var(--green-glow)}
-.flow-box img{width:28px;height:28px;object-fit:contain}
-.flow-box-icon{width:28px;height:28px;border-radius:6px;display:grid;place-items:center;font-family:var(--font-head);font-weight:800;font-size:.85rem}
-.flow-box-name{font-family:var(--font-mono);font-size:.6rem;color:var(--gray-l);text-align:center;line-height:1.3;letter-spacing:.04em}
-.flow-box-sub{font-size:.58rem;color:var(--gray);text-align:center}
-
-/* Connectors */
-.flow-arrow{display:flex;align-items:center;flex:0 0 auto;padding:0 6px}
-.flow-arrow-line{height:2px;background:var(--border2);position:relative;overflow:visible}
-.flow-arrow-line::after{content:'▶';position:absolute;right:-8px;top:50%;transform:translateY(-50%);font-size:.55rem;color:var(--border2)}
-.flow-arrow-line.animated{background:linear-gradient(90deg,var(--border2),var(--green));animation:flow-pulse 1.8s ease-in-out infinite}
-.flow-arrow-line.animated::after{color:var(--green)}
-@keyframes flow-pulse{0%,100%{opacity:.5}50%{opacity:1}}
-
-.flow-arrow-v{display:flex;flex-direction:column;align-items:center;padding:4px 0}
-.flow-arrow-vline{width:2px;height:28px;background:var(--border2);position:relative}
-.flow-arrow-vline::after{content:'▼';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);font-size:.55rem;color:var(--border2)}
-.flow-arrow-vline.animated{background:linear-gradient(180deg,var(--green),var(--border2));animation:flow-pulse-v 1.8s ease-in-out infinite}
-.flow-arrow-vline.animated::after{color:var(--green)}
-@keyframes flow-pulse-v{0%,100%{opacity:.4}50%{opacity:1}}
-
-/* Fork */
-.flow-fork{display:flex;flex-direction:column;align-items:center;gap:0}
-.flow-fork-bar{display:flex;align-items:center;width:280px;justify-content:center;position:relative}
-.flow-fork-bar::before{content:'';position:absolute;top:50%;left:30px;right:30px;height:2px;background:var(--border2)}
-
-.flow-fork-branches{display:flex;justify-content:center;gap:60px;width:280px}
-.flow-fork-branch{display:flex;flex-direction:column;align-items:center;gap:0}
-
-.rule-box{margin-top:40px;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.25);border-radius:var(--r);padding:24px 28px;display:flex;gap:16px;align-items:flex-start}
-.rule-icon{font-size:1.4rem;flex-shrink:0}
-.rule-box h4{font-family:var(--font-head);font-size:.95rem;color:var(--green-l);margin-bottom:6px}
-.rule-box p{font-size:.88rem}
-
-/* ═══ ROADMAP ════════════════════════════════════════════════ */
-#roadmap{background:var(--bg2)}
-.roadmap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
-.roadmap-grid::before{content:'';position:absolute;top:48px;left:calc(12.5%);right:calc(12.5%);height:2px;background:linear-gradient(90deg,var(--gray-d),var(--green),var(--orange),var(--red));z-index:0}
-.phase-wrap{display:flex;flex-direction:column;align-items:center;gap:0;position:relative;z-index:1}
-.phase-dot{width:16px;height:16px;border-radius:50%;border:3px solid var(--bg2);position:relative;z-index:2;margin-bottom:20px;flex-shrink:0}
-.phase-card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:20px;width:calc(100% - 16px);overflow:hidden;position:relative;transition:transform .25s,border-color .25s}
-.phase-card:hover{transform:translateY(-4px);border-color:var(--border2)}
-.phase-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-.p1 .phase-dot{background:var(--gray-d)}
-.p1 .phase-card::before{background:var(--gray-d)}
-.p2 .phase-dot{background:var(--yellow)}
-.p2 .phase-card::before{background:var(--yellow)}
-.p3 .phase-dot{background:var(--orange)}
-.p3 .phase-card::before{background:var(--orange)}
-.p4 .phase-dot{background:var(--red)}
-.p4 .phase-card::before{background:var(--red)}
-.phase-num{font-family:var(--font-head);font-weight:800;font-size:2rem;color:var(--white);line-height:1;margin-bottom:4px}
-.phase-date{font-family:var(--font-mono);font-size:.62rem;color:var(--green);letter-spacing:.06em;margin-bottom:14px}
-.phase-items{display:flex;flex-direction:column;gap:6px}
-.phase-items li{list-style:none;font-size:.82rem;color:var(--gray-l);padding-left:14px;position:relative}
-.phase-items li::before{content:'◆';position:absolute;left:0;font-size:.45rem;color:var(--green);top:5px}
-@media(max-width:700px){
-  .roadmap-grid{grid-template-columns:1fr 1fr;gap:12px}
-  .roadmap-grid::before{display:none}
+/* ─── NOISE TEXTURE ──────────────────────────────────────────────── */
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
+  opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-@media(max-width:440px){.roadmap-grid{grid-template-columns:1fr}}
 
-.roadmap-summary{margin-top:40px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.roadmap-summary-item h4{font-family:var(--font-head);font-size:1rem;color:var(--white);margin-bottom:6px}
-.roadmap-summary-item p{font-size:.87rem}
+/* ─── TYPOGRAPHY ─────────────────────────────────────────────────── */
+.mono{font-family:var(--fm);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--g)}
+h1{font-family:var(--fh);font-weight:800;line-height:.95;letter-spacing:-.03em}
+h2{font-family:var(--fh);font-weight:800;line-height:1.04;letter-spacing:-.025em}
+h3{font-family:var(--fh);font-weight:700;line-height:1.2}
+p{font-size:.9rem;color:var(--ml);line-height:1.75}
+strong{color:var(--w);font-weight:600}
+
+/* ─── SCROLL REVEAL ──────────────────────────────────────────────── */
+[data-r]{opacity:0;transform:translateY(32px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+[data-r].in{opacity:1;transform:none}
+[data-r][data-d="1"]{transition-delay:.1s}
+[data-r][data-d="2"]{transition-delay:.2s}
+[data-r][data-d="3"]{transition-delay:.3s}
+[data-r][data-d="4"]{transition-delay:.4s}
+[data-r][data-d="5"]{transition-delay:.5s}
+[data-r][data-d="6"]{transition-delay:.6s}
+
+/* ─── NAV ────────────────────────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 40px;height:60px;
+  background:rgba(4,8,10,.8);backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.nav-l{display:flex;align-items:center;gap:12px}
+.nav-icon{width:32px;height:32px;border-radius:7px;overflow:hidden;flex-shrink:0;box-shadow:0 0 14px var(--gg)}
+.nav-icon img{width:100%;height:100%;object-fit:cover;image-rendering:pixelated}
+.nav-name{font-family:var(--fh);font-weight:800;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+.nav-r{display:flex;align-items:center;gap:28px}
+.nav-r a{font-size:.78rem;color:var(--mu);transition:color .2s;letter-spacing:.02em}
+.nav-r a:hover{color:var(--g)}
+.nav-pill{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);color:var(--gl);font-family:var(--fm);font-size:.62rem;padding:4px 12px;border-radius:99px;letter-spacing:.06em}
+@media(max-width:640px){.nav-r .nav-links{display:none}}
+
+/* ─── HERO ───────────────────────────────────────────────────────── */
+#hero{
+  min-height:100svh;padding:0;
+  display:grid;grid-template-rows:60px 1fr auto;
+  position:relative;overflow:hidden;
+}
+canvas#bg-canvas{position:absolute;inset:0;pointer-events:none;z-index:0}
+
+.hero-body{
+  display:grid;grid-template-columns:1fr 420px;gap:0;align-items:center;
+  padding:40px 40px 0;max-width:1400px;margin:0 auto;width:100%;
+  position:relative;z-index:1;
+}
+@media(max-width:900px){.hero-body{grid-template-columns:1fr;padding:40px 24px 0}}
+
+/* left */
+.hero-l{padding-right:64px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;margin-bottom:32px}
+.hero-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--g);animation:pulse-dot 2s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.6)}50%{box-shadow:0 0 0 8px rgba(34,197,94,0)}}
+
+.hero-title{font-size:clamp(3.4rem,7vw,6.8rem);margin-bottom:24px}
+.hero-title .line2{color:var(--g);text-shadow:0 0 80px rgba(34,197,94,.35)}
+.char{display:inline-block;opacity:0;transform:translateY(20px);animation:char-in .5s var(--ease-spring) forwards}
+@keyframes char-in{to{opacity:1;transform:none}}
+.hero-title .sp{display:inline-block;width:.25em}
+
+.hero-sub{font-size:1rem;color:var(--md);line-height:1.7;max-width:480px;margin-bottom:40px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:8px;font-weight:600;font-size:.88rem;font-family:var(--fb);cursor:pointer;border:none;transition:all .2s var(--ease-spring)}
+.btn-p{background:var(--g);color:#030a05;box-shadow:0 0 30px rgba(34,197,94,.35)}
+.btn-p:hover{background:var(--gl);transform:translateY(-2px);box-shadow:0 6px 40px rgba(34,197,94,.45)}
+.btn-g{background:transparent;color:var(--w);border:1px solid var(--b2)}
+.btn-g:hover{border-color:var(--g);color:var(--g)}
+
+/* right — floating panel */
+.hero-r{
+  background:linear-gradient(145deg,var(--s1),var(--s2));
+  border:1px solid var(--b1);border-radius:16px;padding:32px;
+  position:relative;overflow:hidden;
+}
+.hero-r::before{
+  content:'';position:absolute;top:-40%;right:-40%;width:200px;height:200px;
+  background:radial-gradient(circle,var(--gg) 0%,transparent 70%);
+  pointer-events:none;
+}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--b1);border-radius:8px;overflow:hidden;margin-bottom:20px}
+.stat-box{background:var(--s1);padding:20px 18px;display:flex;flex-direction:column;gap:4px}
+.stat-val{font-family:var(--fh);font-weight:800;font-size:1.9rem;line-height:1;color:var(--w)}
+.stat-val .c{color:var(--g)}
+.stat-lbl{font-family:var(--fm);font-size:.58rem;color:var(--mu);letter-spacing:.1em;text-transform:uppercase}
+.hero-r-foot{display:flex;align-items:center;gap:10px;font-size:.8rem;color:var(--mu)}
+.hero-r-foot::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--g);animation:pulse-dot 2s ease-in-out infinite}
+
+/* marquee strip */
+.marquee-strip{
+  position:relative;z-index:1;border-top:1px solid var(--b1);
+  overflow:hidden;padding:14px 0;margin-top:40px;
+  background:linear-gradient(to right,var(--bg) 0%,transparent 5%,transparent 95%,var(--bg) 100%);
+}
+.marquee-inner{display:flex;gap:0;animation:marquee 28s linear infinite;width:max-content;white-space:nowrap}
+.marquee-inner:hover{animation-play-state:paused}
+.marquee-item{display:inline-flex;align-items:center;gap:8px;padding:0 32px;font-family:var(--fm);font-size:.65rem;color:var(--mu);text-transform:uppercase;letter-spacing:.12em}
+.marquee-dot{width:4px;height:4px;border-radius:50%;background:var(--g)}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─── SECTION SHARED ─────────────────────────────────────────────── */
+.section{padding:100px 40px}
+.section-inner{max-width:1280px;margin:0 auto}
+@media(max-width:640px){.section{padding:72px 24px}}
+
+.section-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.section-eyebrow::before{content:'';width:28px;height:1px;background:var(--g)}
+.eyebrow-text{font-family:var(--fm);font-size:.65rem;color:var(--g);letter-spacing:.14em;text-transform:uppercase}
+
+/* ─── VSL ────────────────────────────────────────────────────────── */
+#vsl{
+  padding:0;background:#000;position:relative;overflow:hidden;
+}
+.vsl-glow{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:800px;height:400px;
+  background:radial-gradient(ellipse,rgba(34,197,94,.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+.vsl-inner{
+  max-width:1100px;margin:0 auto;padding:60px 40px;
+  display:grid;gap:32px;
+}
+.vsl-label{display:flex;align-items:center;gap:16px;justify-content:center}
+.vsl-label-line{flex:1;height:1px;background:linear-gradient(to right,transparent,var(--b2))}
+.vsl-label-line:last-child{background:linear-gradient(to left,transparent,var(--b2))}
+.vsl-label span{font-family:var(--fm);font-size:.65rem;color:var(--mu);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.vsl-player{
+  border-radius:12px;overflow:hidden;position:relative;
+  box-shadow:0 0 80px rgba(34,197,94,.18),0 40px 120px rgba(0,0,0,.8);
+  border:1px solid rgba(34,197,94,.2);
+}
+.vsl-player video{width:100%;display:block}
+
+/* ─── PLANO ──────────────────────────────────────────────────────── */
+#plano{background:var(--bg)}
+.plano-grid{display:grid;grid-template-columns:360px 1fr;gap:64px;align-items:start}
+@media(max-width:860px){.plano-grid{grid-template-columns:1fr;gap:40px}}
+
+.plano-sticky{position:sticky;top:80px}
+.plano-title{font-size:clamp(2.2rem,4vw,3.2rem);margin:12px 0 20px}
+.plano-desc{font-size:.92rem;line-height:1.75;color:var(--ml)}
+
+.pillars{display:flex;flex-direction:column;gap:0}
+.pillar{
+  display:grid;grid-template-columns:56px 1fr;gap:20px;
+  padding:28px 0;border-bottom:1px solid var(--b1);
+  cursor:default;transition:background .2s;
+}
+.pillar:last-child{border-bottom:none}
+.pillar:hover .pillar-num{box-shadow:0 0 24px var(--gg)}
+.pillar-num{
+  width:56px;height:56px;border-radius:12px;
+  background:var(--g);color:#030a05;
+  display:grid;place-items:center;
+  font-family:var(--fh);font-weight:800;font-size:.95rem;
+  box-shadow:0 0 16px rgba(34,197,94,.3);
+  flex-shrink:0;align-self:start;
+  transition:box-shadow .3s;
+}
+.pillar h3{font-size:1.05rem;color:var(--w);margin-bottom:8px}
+.pillar p{font-size:.87rem}
+
+/* ─── FEATURES ───────────────────────────────────────────────────── */
+#funcionalidades{background:var(--s1);overflow:hidden}
+.feat-intro{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:52px}
+@media(max-width:700px){.feat-intro{grid-template-columns:1fr}}
+.feat-count{font-family:var(--fh);font-weight:800;font-size:clamp(5rem,10vw,9rem);line-height:.9;color:transparent;-webkit-text-stroke:1px var(--b2);user-select:none;text-align:right}
+
+.feat-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:auto auto;
+  gap:10px;
+}
+.feat{
+  background:var(--s2);border:1px solid var(--b1);border-radius:10px;padding:22px;
+  display:flex;flex-direction:column;gap:10px;
+  transition:transform .3s,border-color .3s,box-shadow .3s;
+  transform-style:preserve-3d;cursor:default;
+  border-top:2px solid transparent;
+}
+.feat:hover{border-top-color:var(--g);box-shadow:0 8px 40px rgba(0,0,0,.4);transform:translateY(-2px)}
+/* F1 and F2 span 2 columns each for visual weight */
+.feat[data-big="1"]{grid-column:span 2}
+.feat-top{display:flex;align-items:center;justify-content:space-between}
+.feat-id{font-family:var(--fm);font-size:.6rem;color:var(--g);letter-spacing:.1em}
+.feat-icon{width:34px;height:34px;border-radius:7px;overflow:hidden;display:grid;place-items:center;flex-shrink:0;background:var(--s1);border:1px solid var(--b1)}
+.feat-icon img{width:20px;height:20px;object-fit:contain}
+.feat h3{font-size:.93rem;color:var(--w)}
+.feat p{font-size:.8rem;margin:0}
+@media(max-width:800px){.feat-grid{grid-template-columns:1fr 1fr}.feat[data-big="1"]{grid-column:span 2}}
+@media(max-width:500px){.feat-grid{grid-template-columns:1fr}.feat[data-big="1"]{grid-column:span 1}}
+
+/* ─── ARQUITETURA ────────────────────────────────────────────────── */
+#arquitetura{background:var(--ink);overflow:hidden}
+.arch-header{text-align:center;margin-bottom:60px}
+.arch-header h2{font-size:clamp(2rem,4vw,3rem)}
+.arch-header p{font-size:.9rem;margin:12px auto 0;max-width:440px}
+
+/* SVG flow diagram */
+.arch-svg-wrap{position:relative;max-width:900px;margin:0 auto}
+.arch-svg-wrap svg{width:100%;height:auto;overflow:visible}
+.node-box{
+  fill:var(--s1);stroke:var(--b1);stroke-width:1;rx:10;ry:10;
+  transition:fill .2s,stroke .2s;
+}
+.node-box:hover{fill:var(--s2);stroke:rgba(34,197,94,.5)}
+.node-label{font-family:'DM Sans',sans-serif;fill:var(--w);font-size:11px;font-weight:600;text-anchor:middle}
+.node-sub{font-family:'DM Sans',sans-serif;fill:var(--mu);font-size:9px;text-anchor:middle}
+.flow-line{stroke:var(--b2);stroke-width:1.5;fill:none;stroke-dasharray:6,4}
+.flow-line.hl{stroke:var(--g);stroke-dasharray:none;opacity:.7}
+.flow-arrow{fill:var(--b2)}
+.flow-arrow.hl{fill:var(--g)}
+
+/* Animated SVG line drawing */
+.draw-line{stroke-dasharray:300;stroke-dashoffset:300;transition:stroke-dashoffset 1.2s ease .4s}
+.draw-line.in{stroke-dashoffset:0}
+
+.rule-callout{
+  margin-top:40px;background:rgba(34,197,94,.06);
+  border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:20px 28px;
+  display:flex;align-items:center;gap:16px;max-width:680px;margin-left:auto;margin-right:auto;
+}
+.rule-callout h4{font-family:var(--fh);font-size:.9rem;color:var(--gl);margin-bottom:4px}
+.rule-callout p{font-size:.83rem}
+
+/* ─── ROADMAP ────────────────────────────────────────────────────── */
+#roadmap{background:var(--bg)}
+.roadmap-intro{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;flex-wrap:wrap;gap:20px}
+.roadmap-intro h2{font-size:clamp(2rem,4vw,3rem)}
+.roadmap-intro-right{text-align:right}
+.roadmap-days{font-family:var(--fh);font-weight:800;font-size:3rem;color:var(--g);line-height:1}
+.roadmap-days-label{font-family:var(--fm);font-size:.62rem;color:var(--mu);letter-spacing:.1em}
+
+.timeline{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.timeline::before{
+  content:'';position:absolute;top:24px;left:12.5%;right:12.5%;height:2px;
+  background:linear-gradient(90deg,var(--mu) 0%,var(--g) 33%,var(--ye) 66%,var(--or) 100%);
+  z-index:0;
+}
+@media(max-width:640px){
+  .timeline{grid-template-columns:1fr 1fr}
+  .timeline::before{display:none}
+}
+.phase{
+  display:flex;flex-direction:column;align-items:center;position:relative;z-index:1;
+  padding-top:0;
+}
+.phase-dot{
+  width:18px;height:18px;border-radius:50%;margin-bottom:24px;flex-shrink:0;
+  border:3px solid var(--bg);
+}
+.phase-card{
+  background:var(--s1);border:1px solid var(--b1);border-radius:10px;
+  padding:20px;width:calc(100% - 16px);
+  position:relative;overflow:hidden;transition:transform .25s,border-color .25s;
+}
+.phase-card:hover{transform:translateY(-4px)}
+.phase-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.p1 .phase-dot{background:var(--mu)}.p1 .phase-card::before{background:var(--mu)}
+.p2 .phase-dot{background:var(--g)}.p2 .phase-card::before{background:var(--g)}
+.p3 .phase-dot{background:var(--ye)}.p3 .phase-card::before{background:var(--ye)}
+.p4 .phase-dot{background:var(--or)}.p4 .phase-card::before{background:var(--or)}
+.phase-n{font-family:var(--fh);font-weight:800;font-size:2.4rem;color:var(--w);line-height:1}
+.phase-date{font-family:var(--fm);font-size:.6rem;color:var(--g);margin:4px 0 12px;letter-spacing:.06em}
+.phase-items{list-style:none;display:flex;flex-direction:column;gap:5px}
+.phase-items li{font-size:.8rem;color:var(--md);padding-left:12px;position:relative}
+.phase-items li::before{content:'·';position:absolute;left:2px;color:var(--g)}
+
+.roadmap-summary{
+  margin-top:40px;background:var(--s1);border:1px solid var(--b1);border-radius:10px;
+  padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:24px;
+}
 @media(max-width:540px){.roadmap-summary{grid-template-columns:1fr}}
+.summary-item h4{font-family:var(--fh);font-size:.95rem;color:var(--w);margin-bottom:6px}
+.summary-item p{font-size:.85rem}
 
-/* ═══ PRICING ════════════════════════════════════════════════ */
-.pricing-hero{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px}
-.price-card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:32px;position:relative;overflow:hidden;transition:border-color .25s}
-.price-card:hover{border-color:var(--green)}
-.price-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--border2)}
-.price-card.highlight{border-color:rgba(34,197,94,.4);background:rgba(34,197,94,.04)}
-.price-card.highlight::after{background:var(--green)}
-.price-label{font-family:var(--font-mono);font-size:.65rem;color:var(--gray);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
-.price-val{font-family:var(--font-head);font-weight:800;font-size:3rem;color:var(--white);line-height:1;letter-spacing:-.02em}
-.price-val span{color:var(--green)}
-.price-period{font-family:var(--font-mono);font-size:.72rem;color:var(--gray);margin-top:4px}
-.price-break{margin-top:20px;display:flex;flex-direction:column;gap:8px}
-.price-line{display:flex;justify-content:space-between;align-items:center;font-size:.84rem;padding:8px 0;border-bottom:1px solid var(--border)}
-.price-line:last-child{border-bottom:none}
-.price-line span:first-child{color:var(--gray-l)}
-.price-line span:last-child{font-family:var(--font-mono);font-size:.8rem;color:var(--green-l)}
+/* ─── PRICING ────────────────────────────────────────────────────── */
+#financeiro{background:var(--s1);overflow:hidden}
+.pricing-hero{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px}
 @media(max-width:560px){.pricing-hero{grid-template-columns:1fr}}
+.price-card{
+  background:var(--s2);border:1px solid var(--b1);border-radius:12px;
+  padding:32px;position:relative;overflow:hidden;
+  transition:border-color .25s;
+}
+.price-card:hover{border-color:rgba(34,197,94,.4)}
+.price-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--b1);transition:background .3s}
+.price-card.hl{border-color:rgba(34,197,94,.35);background:rgba(34,197,94,.04)}
+.price-card.hl::after{background:var(--g)}
+.price-type{font-family:var(--fm);font-size:.62rem;color:var(--mu);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.price-big{font-family:var(--fh);font-weight:800;font-size:3.2rem;line-height:1;color:var(--w);letter-spacing:-.02em}
+.price-big .c{color:var(--g)}
+.price-period{font-family:var(--fm);font-size:.68rem;color:var(--mu);margin-top:6px}
+.price-lines{margin-top:20px;display:flex;flex-direction:column;gap:0}
+.price-line{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--b1)}
+.price-line:last-child{border-bottom:none}
+.price-line span:first-child{font-size:.83rem;color:var(--ml)}
+.price-line span:last-child{font-family:var(--fm);font-size:.78rem;color:var(--gl)}
 
-.pricing-table-wrap{overflow-x:auto}
-.pricing-table{width:100%;border-collapse:collapse;border-radius:var(--r);overflow:hidden}
-.pricing-table th{background:#0c160e;color:var(--green);font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;padding:14px 16px;text-align:left;border-bottom:1px solid var(--border2)}
-.pricing-table th:not(:first-child){text-align:center}
-.pricing-table td{padding:13px 16px;font-size:.88rem;border-bottom:1px solid var(--border);transition:background .2s}
-.pricing-table td:not(:first-child){text-align:center;font-family:var(--font-mono);font-size:.82rem;color:var(--green-l)}
-.pricing-table tr:nth-child(odd) td{background:var(--surface)}
-.pricing-table tr:nth-child(even) td{background:var(--bg2)}
-.pricing-table tr:hover td{background:var(--surface2)}
-.pricing-table .total td{background:var(--green)!important;color:#050e07!important;font-weight:700;font-size:.95rem}
-.pricing-table .total td:not(:first-child){font-family:var(--font-head);font-weight:800;font-size:1rem}
-.pricing-note{font-family:var(--font-mono);font-size:.7rem;color:var(--gray);margin-top:10px;font-style:italic}
+.ptable{width:100%;border-collapse:collapse;border-radius:10px;overflow:hidden}
+.ptable th{background:var(--ink);color:var(--g);font-family:var(--fm);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:13px 16px;text-align:left;border-bottom:1px solid var(--b1)}
+.ptable th:not(:first-child){text-align:center}
+.ptable td{padding:12px 16px;font-size:.86rem;border-bottom:1px solid var(--b1);transition:background .15s}
+.ptable td:not(:first-child){text-align:center;font-family:var(--fm);font-size:.8rem;color:var(--gl)}
+.ptable tr:nth-child(odd) td{background:var(--s2)}
+.ptable tr:nth-child(even) td{background:var(--ink)}
+.ptable tr:hover td{background:rgba(34,197,94,.05)}
+.ptable .tot td{background:var(--g)!important;color:#030a05!important;font-weight:700}
+.ptable .tot td:not(:first-child){font-family:var(--fh);font-weight:800;font-size:.95rem}
+.ptable-note{font-family:var(--fm);font-size:.62rem;color:var(--mu);margin-top:8px;font-style:italic}
 
-.stack-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;align-items:center}
-.stack-label{font-family:var(--font-mono);font-size:.62rem;color:var(--gray);text-transform:uppercase;letter-spacing:.08em;margin-right:4px}
-.stack-chip{display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--border2);border-radius:6px;padding:5px 10px 5px 7px;font-size:.78rem;color:var(--gray-l);transition:border-color .2s}
-.stack-chip:hover{border-color:var(--green);color:var(--white)}
+.stack-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;align-items:center}
+.stack-label{font-family:var(--fm);font-size:.58rem;color:var(--mu);text-transform:uppercase;letter-spacing:.1em}
+.stack-chip{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--s2);border:1px solid var(--b1);border-radius:6px;
+  padding:4px 10px 4px 7px;font-size:.76rem;color:var(--ml);
+  transition:border-color .2s,color .2s;
+}
+.stack-chip:hover{border-color:var(--g);color:var(--w)}
 .stack-chip img{width:14px;height:14px;object-fit:contain}
 
-.value-box{margin-top:28px;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.2);border-radius:var(--r);padding:28px}
-.value-box p{font-size:.93rem;line-height:1.75}
-.value-box p+p{margin-top:10px;font-size:.82rem;color:var(--gray);font-style:italic}
+.value-box{
+  margin-top:28px;background:rgba(34,197,94,.05);
+  border:1px solid rgba(34,197,94,.18);border-radius:10px;
+  padding:28px;
+}
+.value-box p{font-size:.9rem;line-height:1.8}
+.value-box p+p{margin-top:8px;font-size:.8rem;color:var(--mu);font-style:italic}
 
-/* ═══ CONTACT ════════════════════════════════════════════════ */
-#contato{background:var(--bg2)}
-.cred-strip{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:28px;margin-bottom:36px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.cred-strip h4{font-family:var(--font-head);font-size:1rem;color:var(--white);width:100%;margin-bottom:4px}
-.cred-badge{display:inline-flex;align-items:center;gap:6px;background:var(--bg2);border:1px solid var(--border2);border-radius:6px;padding:6px 12px;font-size:.78rem;color:var(--gray-l)}
-.cred-badge::before{content:'✦';color:var(--green);font-size:.6rem}
+/* ─── CONTACT ────────────────────────────────────────────────────── */
+#contato{background:var(--ink)}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+@media(max-width:700px){.contact-layout{grid-template-columns:1fr}}
 
-.contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:48px}
-.contact-card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r-sm);padding:20px;transition:border-color .2s}
-.contact-card:hover{border-color:var(--green)}
-.contact-card label{font-family:var(--font-mono);font-size:.62rem;color:var(--green);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:10px}
-.contact-card a,.contact-card span{display:block;font-size:.88rem;color:var(--white);transition:color .2s}
-.contact-card a:hover{color:var(--green-l)}
-@media(max-width:700px){.contact-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:440px){.contact-grid{grid-template-columns:1fr}}
+.cred-banner{
+  background:var(--s1);border:1px solid var(--b1);border-radius:10px;
+  padding:24px;margin-bottom:24px;
+}
+.cred-banner h4{font-family:var(--fh);font-size:.95rem;color:var(--w);margin-bottom:14px}
+.cred-tags{display:flex;flex-wrap:wrap;gap:7px}
+.cred-tag{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;color:var(--ml);background:var(--bg);border:1px solid var(--b1);border-radius:5px;padding:4px 10px}
+.cred-tag::before{content:'✦';color:var(--g);font-size:.55rem}
 
-.cta-final{background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.25);border-radius:var(--r);padding:48px;text-align:center;position:relative;overflow:hidden}
-.cta-final::before{content:'';position:absolute;top:-50%;left:50%;transform:translateX(-50%);width:400px;height:400px;background:radial-gradient(circle,rgba(34,197,94,.12),transparent 70%);pointer-events:none}
-.cta-final h2{margin:16px 0 12px;font-size:clamp(1.8rem,3.5vw,2.8rem)}
-.cta-final p{font-size:.95rem;max-width:460px;margin:0 auto 32px}
-.cta-validity{font-family:var(--font-mono);font-size:.68rem;color:var(--gray);margin-top:16px}
+.contact-cards{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cc{background:var(--s1);border:1px solid var(--b1);border-radius:8px;padding:16px;transition:border-color .2s}
+.cc:hover{border-color:rgba(34,197,94,.4)}
+.cc label{font-family:var(--fm);font-size:.58rem;color:var(--g);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:8px}
+.cc a,.cc span{display:block;font-size:.84rem;color:var(--w);transition:color .2s}
+.cc a:hover{color:var(--gl)}
 
-/* FOOTER */
-footer{background:var(--bg);border-top:1px solid var(--border);padding:24px;text-align:center}
-footer p{font-family:var(--font-mono);font-size:.68rem;color:var(--gray-d)}
+.cta-card{
+  background:rgba(34,197,94,.06);
+  border:1px solid rgba(34,197,94,.25);
+  border-radius:12px;padding:44px;
+  position:relative;overflow:hidden;text-align:center;
+}
+.cta-card::before{
+  content:'';position:absolute;top:-60%;left:50%;transform:translateX(-50%);
+  width:300px;height:300px;
+  background:radial-gradient(circle,rgba(34,197,94,.14),transparent 70%);
+  pointer-events:none;
+}
+.cta-card .cta-valid{font-family:var(--fm);font-size:.62rem;color:var(--mu);margin-bottom:16px}
+.cta-card h2{font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:12px;position:relative}
+.cta-card p{font-size:.9rem;max-width:360px;margin:0 auto 28px;position:relative}
+.cta-fine{font-family:var(--fm);font-size:.62rem;color:var(--mu);margin-top:14px}
+
+/* ─── FOOTER ─────────────────────────────────────────────────────── */
+footer{background:var(--ink);border-top:1px solid var(--b1);padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
+footer p{font-family:var(--fm);font-size:.62rem;color:var(--mu)}
 </style>
 </head>
 <body>
 
-<!-- ══ NAV ══════════════════════════════════════════════════ -->
+<!-- ══ NAV ═══════════════════════════════════════════════════════ -->
 <nav>
-  <a href="#" class="nav-logo">
-    <div class="nav-icon" style="background:transparent;overflow:hidden;padding:0"><img src="assets/automatrix-icon.png" alt="A" style="width:100%;height:100%;object-fit:cover;image-rendering:pixelated"/></div>
+  <a href="#" class="nav-l">
+    <div class="nav-icon"><img src="assets/automatrix-icon.png" alt="A" style="image-rendering:pixelated"/></div>
     <div>
-      <div class="nav-name">AUTOMATRIX</div>
-      <div class="nav-sub">Inteligência Artificial</div>
+      <div class="nav-name">Automatrix</div>
     </div>
   </a>
-  <div class="nav-links">
-    <a href="#plano">Plano</a>
-    <a href="#funcionalidades">Escopo</a>
-    <a href="#arquitetura">Arquitetura</a>
-    <a href="#financeiro">Proposta</a>
-    <a href="#contato">Contato</a>
+  <div class="nav-r">
+    <div class="nav-links" style="display:flex;gap:24px">
+      <a href="#plano">Plano</a>
+      <a href="#funcionalidades">Funcionalidades</a>
+      <a href="#arquitetura">Arquitetura</a>
+      <a href="#financeiro">Proposta</a>
+    </div>
+    <span class="nav-pill">GVG · Jun 2026</span>
   </div>
-  <div class="nav-badge">Junho 2026</div>
 </nav>
 
-<!-- ══ HERO ══════════════════════════════════════════════════ -->
+<!-- ══ HERO ══════════════════════════════════════════════════════ -->
 <section id="hero">
-  <div class="hero-glow"></div>
-  <div class="hero-glow hero-glow2"></div>
-  <div class="hero-inner">
-    <div class="hero-pre reveal">
-      <span class="eyebrow">Proposta Comercial</span>
-      <span class="hero-client">GVG — Grupo Vládia Gonçalves</span>
-    </div>
-    <div class="hero-title reveal reveal-delay-1">
-      <div class="hero-t1">SDR Inteligente</div>
-      <div class="hero-t2">
-        <span class="hero-t2-text">via&nbsp;</span>
-        <span class="wa-badge">
-          <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp" width="22" height="22"/>
-          <span>WhatsApp</span>
-        </span>
+  <canvas id="bg-canvas"></canvas>
+  <div class="hero-body" style="padding-top:80px">
+    <!-- LEFT -->
+    <div class="hero-l">
+      <div class="hero-badge" data-r>
+        <div class="hero-badge-dot"></div>
+        <span class="mono">GVG Marcas e Patentes · Proposta Exclusiva</span>
+      </div>
+      <h1 class="hero-title" id="hero-title" data-r data-d="1">
+        <span class="line1">SDR</span><br>
+        <span class="line1">Inteligente</span><br>
+        <span class="line2">via WhatsApp</span>
+      </h1>
+      <p class="hero-sub" data-r data-d="2">
+        Um agente de vendas disponível <strong>24/7</strong> com o tom de voz da Vládia Gonçalves — qualifica leads, registra no CRM e agenda reuniões automaticamente. <strong>Zero risco de banimento.</strong>
+      </p>
+      <div class="hero-ctas" data-r data-d="3">
+        <a href="#vsl" class="btn btn-p">▶ Assistir apresentação</a>
+        <a href="#financeiro" class="btn btn-g">Ver proposta financeira</a>
       </div>
     </div>
-    <p class="hero-sub reveal reveal-delay-2">
-      Um agente de vendas disponível <strong>24/7</strong>, com o tom de voz da Vládia Gonçalves, integrado ao CRM, com rastreamento por campanha e <strong>zero risco de banimento</strong>.
-    </p>
-    <div class="hero-stats reveal reveal-delay-3">
-      <div class="stat">
-        <div class="stat-val"><span class="num" data-target="24">0</span>h / <span class="num" data-target="7">0</span>d</div>
-        <div class="stat-lbl">Disponibilidade</div>
+    <!-- RIGHT panel -->
+    <div class="hero-r" data-r data-d="2">
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-val"><span class="c counter" data-target="24">0</span>/<span class="c counter" data-target="7">0</span></div>
+          <div class="stat-lbl">Disponibilidade</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val"><span class="counter" data-target="30">0</span> <span style="font-size:1rem;color:var(--mu)">dias</span></div>
+          <div class="stat-lbl">Prazo de entrega</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">R$<span class="c counter" data-target="8">0</span>k</div>
+          <div class="stat-lbl">Setup único</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val"><span class="counter" data-target="7">0</span> <span style="font-size:1rem;color:var(--mu)">int.</span></div>
+          <div class="stat-lbl">Integrações</div>
+        </div>
       </div>
-      <div class="stat">
-        <div class="stat-val"><span class="num" data-target="30">0</span> dias</div>
-        <div class="stat-lbl">Prazo de entrega</div>
-      </div>
-      <div class="stat">
-        <div class="stat-val">R$<span class="num" data-target="8">0</span>k</div>
-        <div class="stat-lbl">Setup único</div>
-      </div>
-      <div class="stat">
-        <div class="stat-val"><span class="num" data-target="7">0</span></div>
-        <div class="stat-lbl">Integrações</div>
-      </div>
+      <div class="hero-r-foot">SDR ativo 24h · Sem intervenção manual</div>
     </div>
-    <div class="hero-ctas reveal reveal-delay-4">
-      <a href="#plano" class="btn btn-primary">Ver proposta completa ↓</a>
-      <a href="#contato" class="btn btn-ghost">Entrar em contato</a>
+  </div>
+  <!-- Marquee -->
+  <div class="marquee-strip">
+    <div class="marquee-inner" id="marquee">
+      <span class="marquee-item"><span class="marquee-dot"></span>WhatsApp Cloud API</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>N8N Automation</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>OpenClaw + GPT-4.1</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>RD Station CRM</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Google Calendar</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Meta Ads UTM Tracking</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Looker Studio Dashboard</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>SPIN Selling Closer</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Zero Banimento</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Qualificação 24/7</span>
+      <!-- duplicate for seamless loop -->
+      <span class="marquee-item"><span class="marquee-dot"></span>WhatsApp Cloud API</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>N8N Automation</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>OpenClaw + GPT-4.1</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>RD Station CRM</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Google Calendar</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Meta Ads UTM Tracking</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Looker Studio Dashboard</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>SPIN Selling Closer</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Zero Banimento</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Qualificação 24/7</span>
     </div>
   </div>
 </section>
 
-<!-- ══ VSL ════════════════════════════════════════════════════ -->
+<!-- ══ VSL ════════════════════════════════════════════════════════ -->
 <section id="vsl">
-  <div class="vsl-wrap">
-    <div class="vsl-header reveal">
-      <span class="eyebrow">Apresentação em Vídeo</span>
-      <h2 style="margin-top:14px">Assista a apresentação<br>narrada completa</h2>
+  <div class="vsl-glow"></div>
+  <div class="vsl-inner">
+    <div class="vsl-label" data-r>
+      <div class="vsl-label-line"></div>
+      <span>Apresentação narrada completa · 2 min 12 s</span>
+      <div class="vsl-label-line"></div>
     </div>
     <!-- VSL_PLACEHOLDER_START -->
-    <div id="vsl-container" class="reveal reveal-delay-1" style="border-radius:12px;overflow:hidden;background:#000;box-shadow:0 0 60px rgba(34,197,94,.2)">
-      <video controls preload="metadata" style="width:100%;display:block;border-radius:12px" src="apresentacao.mp4">
-        Seu navegador não suporta a tag de vídeo.
-      </video>
+    <div class="vsl-player" id="vsl-container" data-r data-d="1">
+      <video controls preload="metadata" src="apresentacao.mp4" style="width:100%;display:block"></video>
     </div>
     <!-- VSL_PLACEHOLDER_END -->
   </div>
 </section>
 
-<!-- ══ PLANO DE AÇÃO ══════════════════════════════════════════ -->
-<section id="plano">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Plano de Ação</span>
-      <h2>Três pilares de resultado<br>em 30 dias</h2>
-      <p>Uma arquitetura simples, auditável e sem risco de banimento — do lead ao Closer humano.</p>
-    </div>
-    <div class="pillars">
-      <div class="pillar-card reveal">
-        <div class="pillar-num">#1</div>
-        <div>
-          <h3>Agente SDR IA no WhatsApp</h3>
-          <p>Disponível 24/7 com o tom de voz e os valores da Vládia Gonçalves. Qualifica leads automaticamente — coleta nome, telefone e nome da marca. <strong>NUNCA envia link de pagamento:</strong> toda transação é conduzida exclusivamente pelo Closer humano após diagnóstico consultivo.</p>
+<!-- ══ PLANO ══════════════════════════════════════════════════════ -->
+<section id="plano" class="section">
+  <div class="section-inner">
+    <div class="plano-grid">
+      <div class="plano-sticky">
+        <div class="section-eyebrow" data-r>
+          <span class="eyebrow-text">Plano de Ação</span>
         </div>
+        <h2 class="plano-title" data-r data-d="1">Três pilares<br>em 30 dias</h2>
+        <p class="plano-desc" data-r data-d="2">Uma arquitetura simples, auditável e sem risco de banimento — do lead ao Closer humano.</p>
       </div>
-      <div class="pillar-card reveal reveal-delay-1">
-        <div class="pillar-num">#2</div>
-        <div>
-          <h3>Integrações CRM + Agendamento Automático</h3>
-          <p>Pipeline completo: WhatsApp Cloud API → N8N → RD Station CRM + Google Calendar. O Closer recebe o histórico completo de cada conversa antes de qualquer ligação. Toda pergunta sobre preço ou prazo aciona automaticamente um agendamento de <strong>15 minutos</strong>.</p>
+      <div class="pillars">
+        <div class="pillar" data-r>
+          <div class="pillar-num">01</div>
+          <div>
+            <h3>Agente SDR IA no WhatsApp</h3>
+            <p>Disponível 24/7 com o tom de voz da Vládia Gonçalves. Qualifica leads — coleta nome, telefone e nome da marca. <strong>NUNCA envia link de pagamento</strong>: toda transação é conduzida pelo Closer humano após diagnóstico consultivo.</p>
+          </div>
         </div>
-      </div>
-      <div class="pillar-card reveal reveal-delay-2">
-        <div class="pillar-num">#3</div>
-        <div>
-          <h3>Dashboard e Analytics em Tempo Real</h3>
-          <p>Painel de conversão no Looker Studio com rastreamento de UTM por campanha do Meta Ads. Volume de leads, taxa de qualificação, conversões por anúncio e funil completo — <strong>zero métricas invisíveis</strong>, toda jornada documentada.</p>
+        <div class="pillar" data-r data-d="1">
+          <div class="pillar-num">02</div>
+          <div>
+            <h3>Integrações CRM + Agendamento</h3>
+            <p>Pipeline completo: WhatsApp Cloud API → N8N → RD Station CRM + Google Calendar. O Closer recebe o histórico completo antes de qualquer ligação. Toda pergunta sobre preço aciona automaticamente um agendamento de <strong>15 minutos</strong>.</p>
+          </div>
+        </div>
+        <div class="pillar" data-r data-d="2">
+          <div class="pillar-num">03</div>
+          <div>
+            <h3>Dashboard e Analytics em Tempo Real</h3>
+            <p>Painel no Looker Studio com rastreamento UTM por campanha do Meta Ads. Volume de leads, taxa de qualificação, conversões por anúncio — <strong>zero métricas invisíveis</strong>.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ FUNCIONALIDADES ════════════════════════════════════════ -->
-<section id="funcionalidades">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Escopo Base</span>
-      <h2>7 funcionalidades incluídas</h2>
-      <p>Tudo que a GVG precisa para sair do zero ao SDR IA em produção.</p>
+<!-- ══ FUNCIONALIDADES ════════════════════════════════════════════ -->
+<section id="funcionalidades" class="section">
+  <div class="section-inner">
+    <div class="feat-intro">
+      <div>
+        <div class="section-eyebrow" data-r><span class="eyebrow-text">Escopo Base</span></div>
+        <h2 data-r data-d="1" style="font-size:clamp(2rem,4vw,3rem)">Funcionalidades<br>incluídas</h2>
+        <p data-r data-d="2" style="margin-top:12px">Tudo que a GVG precisa para ir do zero ao SDR IA em produção.</p>
+      </div>
+      <div class="feat-count" data-r data-d="1">07</div>
     </div>
-    <div class="features-grid">
-      <div class="feat reveal">
+    <div class="feat-grid">
+      <div class="feat" data-big="1" data-r>
         <div class="feat-top">
-          <span class="feat-label">F1</span>
-          <div class="feat-icon"><img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp"/></div>
+          <span class="feat-id">F1</span>
+          <div class="feat-icon"><img src="assets/whatsapp.svg" alt="WhatsApp"/></div>
         </div>
         <h3>WhatsApp Cloud API Oficial</h3>
-        <p>Número verificado Meta Business — zero risco de banimento. Webhooks com parâmetros UTM para rastreamento por campanha.</p>
+        <p>Número verificado Meta Business — zero risco de banimento como a API Zapi anterior. Webhooks com parâmetros UTM por campanha.</p>
       </div>
-      <div class="feat reveal reveal-delay-1">
+      <div class="feat" data-big="1" data-r data-d="1">
         <div class="feat-top">
-          <span class="feat-label">F2</span>
-          <div class="feat-icon"><img src="https://cdn.simpleicons.org/openai/ffffff" alt="OpenAI"/></div>
+          <span class="feat-id">F2</span>
+          <div class="feat-icon"><img src="assets/openai.svg" alt="OpenAI" style="filter:invert(1)"/></div>
         </div>
         <h3>Agente SDR com IA 24/7</h3>
         <p>OpenClaw + GPT-4.1 treinado com o tom de voz da Vládia. Responde instantaneamente, qualifica leads sem parar.</p>
       </div>
-      <div class="feat reveal reveal-delay-2">
-        <div class="feat-top">
-          <span class="feat-label">F3</span>
-          <div class="feat-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-        </div>
+      <div class="feat" data-r data-d="2">
+        <div class="feat-top"><span class="feat-id">F3</span><span style="font-size:1.2rem">🔑</span></div>
         <h3>Scripts + Regra de Ouro</h3>
-        <p>Coleta apenas: nome, telefone, nome da marca. Regra inviolável: <strong>SDR NUNCA envia link de pagamento.</strong></p>
+        <p>Coleta: nome, telefone, marca. SDR nunca envia link de pagamento.</p>
       </div>
-      <div class="feat reveal">
+      <div class="feat" data-r data-d="3">
         <div class="feat-top">
-          <span class="feat-label">F4</span>
-          <div class="feat-icon"><img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="N8N"/></div>
+          <span class="feat-id">F4</span>
+          <div class="feat-icon"><img src="assets/n8n.svg" alt="N8N"/></div>
         </div>
         <h3>N8N → RD Station CRM</h3>
-        <p>Cada conversa registrada em tempo real. Closer entra na reunião com histórico completo — zero briefing, 100% contexto.</p>
+        <p>Cada conversa registrada. Closer com histórico completo.</p>
       </div>
-      <div class="feat reveal reveal-delay-1">
+      <div class="feat" data-r data-d="1">
         <div class="feat-top">
-          <span class="feat-label">F5</span>
-          <div class="feat-icon"><img src="https://cdn.simpleicons.org/googlecalendar/4285F4" alt="Google Calendar"/></div>
+          <span class="feat-id">F5</span>
+          <div class="feat-icon"><img src="assets/googlecalendar.svg" alt="Calendar"/></div>
         </div>
-        <h3>Agendamento via Google Calendar</h3>
-        <p>Toda pergunta sobre preço/prazo → reunião de 15 minutos criada automaticamente. Sem atrito para o lead.</p>
+        <h3>Google Calendar</h3>
+        <p>Pergunta sobre preço/prazo → reunião 15min automática.</p>
       </div>
-      <div class="feat reveal reveal-delay-2">
+      <div class="feat" data-r data-d="2">
         <div class="feat-top">
-          <span class="feat-label">F6</span>
-          <div class="feat-icon"><img src="https://cdn.simpleicons.org/looker/4285F4" alt="Looker Studio"/></div>
+          <span class="feat-id">F6</span>
+          <div class="feat-icon"><img src="assets/looker.svg" alt="Looker"/></div>
         </div>
-        <h3>Dashboard (Looker Studio)</h3>
-        <p>UTM por campanha, taxa de qualificação, funil lead→qualificado→reunião→Closer. Dados que faltavam completamente.</p>
+        <h3>Dashboard Looker Studio</h3>
+        <p>UTM por campanha, funil lead→Closer, conversão rastreada.</p>
       </div>
-      <div class="feat reveal">
-        <div class="feat-top">
-          <span class="feat-label">F7</span>
-          <div class="feat-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          </div>
-        </div>
-        <h3>Monitoramento + SLA 30 Dias</h3>
-        <p>Uptime 99,5%, resposta a incidentes críticos em até 2 horas. 30 dias de suporte intensivo incluídos.</p>
+      <div class="feat" data-r data-d="3">
+        <div class="feat-top"><span class="feat-id">F7</span><span style="font-size:1.2rem">📡</span></div>
+        <h3>Suporte 30 dias</h3>
+        <p>Uptime 99,5% · Incidentes críticos em até 2h.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ ARQUITETURA ════════════════════════════════════════════ -->
-<section id="arquitetura">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Arquitetura do Sistema</span>
-      <h2>Como funciona</h2>
-      <p>Do anúncio no Meta até o Closer humano — nenhum lead perdido.</p>
+<!-- ══ ARQUITETURA ════════════════════════════════════════════════ -->
+<section id="arquitetura" class="section">
+  <div class="section-inner">
+    <div class="arch-header">
+      <div class="section-eyebrow" style="justify-content:center" data-r><span class="eyebrow-text">Arquitetura do Sistema</span></div>
+      <h2 data-r data-d="1">Como funciona</h2>
+      <p data-r data-d="2">Do anúncio no Meta até o Closer humano — nenhum lead perdido.</p>
     </div>
 
-    <div class="flow-diagram reveal">
-      <!-- Row 1: Meta → WA → N8N -->
-      <div class="flow-row" style="gap:0;justify-content:flex-start;width:100%;overflow-x:auto;padding-bottom:8px">
+    <div class="arch-svg-wrap" data-r>
+      <svg viewBox="0 0 860 360" xmlns="http://www.w3.org/2000/svg" style="font-family:'DM Sans',sans-serif">
+        <defs>
+          <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6" fill="none" stroke="#1f3624" stroke-width="1.2"/>
+          </marker>
+          <marker id="arr-g" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6" fill="none" stroke="#22c55e" stroke-width="1.2"/>
+          </marker>
+          <!-- Glow filter -->
+          <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+
+        <!-- Row 1: Meta → WA → N8N → SDR IA -->
+        <!-- Boxes -->
         <!-- Meta Ads -->
-        <div class="flow-node">
-          <div class="flow-box" style="border-color:rgba(24,119,242,.4)">
-            <img src="https://cdn.simpleicons.org/meta/1877F2" alt="Meta" width="28" height="28"/>
-            <div class="flow-box-name">Meta Ads</div>
-            <div class="flow-box-sub">UTM tracking</div>
-          </div>
-        </div>
-        <div class="flow-arrow"><div class="flow-arrow-line animated" style="width:48px"></div></div>
-        <!-- WhatsApp -->
-        <div class="flow-node">
-          <div class="flow-box" style="border-color:rgba(37,211,102,.4);box-shadow:0 0 16px rgba(37,211,102,.12)">
-            <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp" width="28" height="28"/>
-            <div class="flow-box-name">WhatsApp<br>Cloud API</div>
-            <div class="flow-box-sub">Meta verified</div>
-          </div>
-        </div>
-        <div class="flow-arrow"><div class="flow-arrow-line animated" style="width:48px"></div></div>
+        <rect x="20" y="60" width="120" height="80" rx="10" fill="#0c1910" stroke="#1c3022" stroke-width="1"/>
+        <image href="assets/meta.svg" x="46" y="74" width="24" height="24"/>
+        <text x="80" y="118" fill="#edfaf1" font-size="11" font-weight="600" text-anchor="middle">Meta Ads</text>
+        <text x="80" y="130" fill="#5a7d61" font-size="9" text-anchor="middle">Tráfego pago</text>
+
+        <!-- WhatsApp API -->
+        <rect x="185" y="60" width="130" height="80" rx="10" fill="#0a2010" stroke="rgba(37,211,102,.4)" stroke-width="1" filter="url(#glow)"/>
+        <image href="assets/whatsapp.svg" x="212" y="74" width="24" height="24" style="filter:drop-shadow(0 0 6px #25d366)"/>
+        <text x="250" y="118" fill="#edfaf1" font-size="11" font-weight="600" text-anchor="middle">WhatsApp API</text>
+        <text x="250" y="130" fill="#22c55e" font-size="9" text-anchor="middle">Cloud Oficial</text>
+
         <!-- N8N -->
-        <div class="flow-node">
-          <div class="flow-box" style="border-color:rgba(234,75,113,.3)">
-            <img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="N8N" width="28" height="28"/>
-            <div class="flow-box-name">N8N<br>Webhook</div>
-            <div class="flow-box-sub">Orquestração</div>
-          </div>
-        </div>
-        <div class="flow-arrow"><div class="flow-arrow-line animated" style="width:48px"></div></div>
+        <rect x="360" y="60" width="120" height="80" rx="10" fill="#0c1910" stroke="#2a1020" stroke-width="1"/>
+        <image href="assets/n8n.svg" x="386" y="74" width="24" height="24"/>
+        <text x="420" y="118" fill="#edfaf1" font-size="11" font-weight="600" text-anchor="middle">N8N Webhook</text>
+        <text x="420" y="130" fill="#5a7d61" font-size="9" text-anchor="middle">Orquestração</text>
+
         <!-- SDR IA -->
-        <div class="flow-node">
-          <div class="flow-box" style="border-color:rgba(34,197,94,.5);box-shadow:0 0 20px rgba(34,197,94,.15);background:rgba(34,197,94,.06)">
-            <img src="https://cdn.simpleicons.org/openai/4ade80" alt="OpenAI/GPT" width="28" height="28"/>
-            <div class="flow-box-name" style="color:var(--green-l)">Agente SDR IA</div>
-            <div class="flow-box-sub">OpenClaw + GPT-4.1</div>
-          </div>
-        </div>
-      </div>
+        <rect x="530" y="60" width="130" height="80" rx="10" fill="#0a1a0c" stroke="rgba(34,197,94,.5)" stroke-width="1.5" filter="url(#glow)"/>
+        <image href="assets/openai.svg" x="558" y="74" width="24" height="24" style="filter:invert(1)"/>
+        <text x="595" y="118" fill="#4ade80" font-size="11" font-weight="700" text-anchor="middle">Agente SDR IA</text>
+        <text x="595" y="130" fill="#22c55e" font-size="9" text-anchor="middle">GPT-4.1 · OpenClaw</text>
 
-      <!-- Vertical down from SDR -->
-      <div style="display:flex;padding-left:calc(3 * (110px + 48px) + 55px);margin:-4px 0">
-        <div class="flow-arrow-v"><div class="flow-arrow-vline animated"></div></div>
-      </div>
+        <!-- Arrows row 1 -->
+        <line x1="142" y1="100" x2="183" y2="100" stroke="#1f3624" stroke-width="1.5" marker-end="url(#arr)" class="draw-line" id="line1"/>
+        <line x1="317" y1="100" x2="358" y2="100" stroke="#1f3624" stroke-width="1.5" marker-end="url(#arr)" class="draw-line" id="line2"/>
+        <line x1="482" y1="100" x2="528" y2="100" stroke="#22c55e" stroke-width="1.5" marker-end="url(#arr-g)" opacity=".7" class="draw-line" id="line3"/>
 
-      <!-- Row 2: Calendar and RD Station branches -->
-      <div class="flow-row" style="padding-left:calc(3 * (110px + 48px));gap:0;justify-content:flex-start">
-        <!-- Fork container -->
-        <div style="display:flex;flex-direction:column;align-items:center">
-          <!-- Horizontal branch bar -->
-          <div style="display:flex;align-items:center;position:relative;width:288px;margin-bottom:4px">
-            <div style="position:absolute;top:50%;left:24px;right:24px;height:2px;background:var(--border2)"></div>
-            <div style="position:absolute;top:50%;left:142px;width:2px;height:20px;background:var(--border2);transform:translateY(-50%)"></div>
-          </div>
-          <!-- Branches -->
-          <div style="display:flex;gap:48px">
-            <!-- Google Calendar -->
-            <div class="flow-node">
-              <div class="flow-arrow-v" style="margin-bottom:-4px"><div class="flow-arrow-vline animated"></div></div>
-              <div class="flow-box" style="border-color:rgba(66,133,244,.4)">
-                <img src="https://cdn.simpleicons.org/googlecalendar/4285F4" alt="Google Calendar" width="28" height="28"/>
-                <div class="flow-box-name">Google<br>Calendar</div>
-                <div class="flow-box-sub">Agenda 15min</div>
-              </div>
-            </div>
-            <!-- RD Station -->
-            <div class="flow-node">
-              <div class="flow-arrow-v" style="margin-bottom:-4px"><div class="flow-arrow-vline animated"></div></div>
-              <div class="flow-box" style="border-color:rgba(255,127,0,.3)">
-                <div class="flow-box-icon" style="background:rgba(255,127,0,.15);color:#ff7f00;font-size:.7rem;border-radius:6px;padding:4px">RD</div>
-                <div class="flow-box-name">RD Station<br>CRM</div>
-                <div class="flow-box-sub">Histórico Closer</div>
-              </div>
-            </div>
-          </div>
-          <!-- Down to Closer -->
-          <div style="display:flex;align-items:center;position:relative;width:288px;margin-top:4px">
-            <div style="position:absolute;top:50%;left:24px;right:24px;height:2px;background:var(--border2)"></div>
-          </div>
-          <div class="flow-arrow-v" style="margin:-4px 0"><div class="flow-arrow-vline animated"></div></div>
-          <!-- Closer Humano -->
-          <div class="flow-node">
-            <div class="flow-box" style="border-color:rgba(240,240,240,.25);background:rgba(255,255,255,.04);width:140px">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f0faf2" stroke-width="1.8">
-                <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-              </svg>
-              <div class="flow-box-name" style="color:var(--gray-l)">Closer<br>Humano</div>
-              <div class="flow-box-sub">SPIN Selling</div>
-            </div>
-          </div>
-        </div>
-      </div>
+        <!-- Arrow down from SDR IA to row 2 -->
+        <line x1="595" y1="142" x2="595" y2="218" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-g)" opacity=".6" class="draw-line" id="line4"/>
+        <!-- Fork line horizontal -->
+        <line x1="370" y1="258" x2="720" y2="258" stroke="#1f3624" stroke-width="1.5" class="draw-line" id="line5"/>
+
+        <!-- Row 2: RD Station + Google Calendar -->
+        <!-- RD Station -->
+        <rect x="310" y="220" width="130" height="80" rx="10" fill="#1c0f08" stroke="#3a2010" stroke-width="1"/>
+        <rect x="340" y="240" width="32" height="32" rx="7" fill="#f97316" opacity=".15"/>
+        <text x="356" y="262" fill="#f97316" font-size="14" font-weight="900" text-anchor="middle">RD</text>
+        <text x="375" y="278" fill="#edfaf1" font-size="11" font-weight="600" text-anchor="middle">RD Station</text>
+        <text x="375" y="290" fill="#5a7d61" font-size="9" text-anchor="middle">CRM · Histórico</text>
+
+        <!-- Google Calendar -->
+        <rect x="500" y="220" width="130" height="80" rx="10" fill="#080e1c" stroke="#1c3050" stroke-width="1"/>
+        <image href="assets/googlecalendar.svg" x="526" y="234" width="24" height="24"/>
+        <text x="565" y="278" fill="#edfaf1" font-size="11" font-weight="600" text-anchor="middle">Google Cal.</text>
+        <text x="565" y="290" fill="#5a7d61" font-size="9" text-anchor="middle">Reunião 15min</text>
+
+        <!-- Down arrows to row 2 -->
+        <line x1="375" y1="258" x2="375" y2="218" stroke="#1f3624" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr)" class="draw-line" id="line6"/>
+        <line x1="565" y1="258" x2="565" y2="218" stroke="#1f3624" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr)" class="draw-line" id="line7"/>
+
+        <!-- Closer Humano - center bottom -->
+        <rect x="660" y="220" width="140" height="80" rx="10" fill="#0e1a12" stroke="#263a2c" stroke-width="1"/>
+        <!-- Person icon -->
+        <circle cx="730" cy="246" r="10" fill="none" stroke="#96b59b" stroke-width="1.5"/>
+        <path d="M712,290 C712,278 719,272 730,272 C741,272 748,278 748,290" fill="none" stroke="#96b59b" stroke-width="1.5"/>
+        <text x="730" y="306" fill="#edfaf1" font-size="11" font-weight="600" text-anchor="middle">Closer Humano</text>
+        <text x="730" y="318" fill="#5a7d61" font-size="9" text-anchor="middle">SPIN Selling</text>
+
+        <!-- Fork lines to Closer -->
+        <line x1="442" y1="260" x2="658" y2="260" stroke="#1f3624" stroke-width="1.5" class="draw-line" id="line8"/>
+        <line x1="660" y1="260" x2="660" y2="260" stroke="#1f3624" stroke-width="1.5" class="draw-line"/>
+      </svg>
     </div>
 
-    <div class="rule-box reveal" style="margin-top:40px">
-      <div class="rule-icon">🔑</div>
+    <div class="rule-callout" data-r>
+      <span style="font-size:1.3rem;flex-shrink:0">🔑</span>
       <div>
         <h4>Regra de Ouro do SDR</h4>
-        <p>O SDR é um qualificador — nunca um vendedor. O agente coleta apenas nome, telefone e nome da marca. Toda transação financeira e todo processo de fechamento é <strong>exclusividade do Closer humano</strong> após diagnóstico consultivo.</p>
+        <p>O SDR é um qualificador — nunca um vendedor. Toda transação financeira e fechamento é <strong>exclusividade do Closer humano</strong> após diagnóstico consultivo.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ ROADMAP ════════════════════════════════════════════════ -->
-<section id="roadmap">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Roadmap</span>
-      <h2>Implementação em 30 dias</h2>
-      <p>4 fases com entregas claras e data de GO LIVE definida.</p>
+<!-- ══ ROADMAP ════════════════════════════════════════════════════ -->
+<section id="roadmap" class="section">
+  <div class="section-inner">
+    <div class="roadmap-intro">
+      <div>
+        <div class="section-eyebrow" data-r><span class="eyebrow-text">Roadmap</span></div>
+        <h2 data-r data-d="1">Implementação<br>em 4 semanas</h2>
+      </div>
+      <div class="roadmap-intro-right" data-r>
+        <div class="roadmap-days">30</div>
+        <div class="roadmap-days-label">dias até GO LIVE</div>
+      </div>
     </div>
-    <div class="roadmap-grid">
-      <div class="phase-wrap p1 reveal">
+    <div class="timeline">
+      <div class="phase p1" data-r>
         <div class="phase-dot"></div>
         <div class="phase-card">
-          <div class="phase-num">01</div>
+          <div class="phase-n">01</div>
           <div class="phase-date">16–20 Jun · Semana 1</div>
           <ul class="phase-items">
             <li>Setup WhatsApp Cloud API</li>
@@ -613,22 +755,22 @@ footer p{font-family:var(--font-mono);font-size:.68rem;color:var(--gray-d)}
           </ul>
         </div>
       </div>
-      <div class="phase-wrap p2 reveal reveal-delay-1">
+      <div class="phase p2" data-r data-d="1">
         <div class="phase-dot"></div>
         <div class="phase-card">
-          <div class="phase-num">02</div>
+          <div class="phase-n">02</div>
           <div class="phase-date">23–27 Jun · Semana 2</div>
           <ul class="phase-items">
-            <li>Agente SDR IA com tom da Vládia</li>
+            <li>Agente SDR com tom da Vládia</li>
             <li>Scripts de qualificação</li>
             <li>Testes internos</li>
           </ul>
         </div>
       </div>
-      <div class="phase-wrap p3 reveal reveal-delay-2">
+      <div class="phase p3" data-r data-d="2">
         <div class="phase-dot"></div>
         <div class="phase-card">
-          <div class="phase-num">03</div>
+          <div class="phase-n">03</div>
           <div class="phase-date">30 Jun–4 Jul · Semana 3</div>
           <ul class="phase-items">
             <li>N8N → RD Station + Calendar</li>
@@ -637,25 +779,25 @@ footer p{font-family:var(--font-mono);font-size:.68rem;color:var(--gray-d)}
           </ul>
         </div>
       </div>
-      <div class="phase-wrap p4 reveal reveal-delay-3">
+      <div class="phase p4" data-r data-d="3">
         <div class="phase-dot"></div>
         <div class="phase-card">
-          <div class="phase-num">04</div>
+          <div class="phase-n">04</div>
           <div class="phase-date">7–11 Jul · Semana 4</div>
           <ul class="phase-items">
             <li>Dashboard Looker Studio</li>
-            <li><strong style="color:var(--red)">GO LIVE oficial</strong></li>
+            <li><strong style="color:#f97316">GO LIVE oficial</strong></li>
             <li>Monitoramento 24/7 · SLA 2h</li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="roadmap-summary reveal">
-      <div class="roadmap-summary-item">
+    <div class="roadmap-summary" data-r>
+      <div class="summary-item">
         <h4>Após as 4 semanas</h4>
         <p>A GVG estará com o SDR IA ativo, CRM integrado, agendamento automático e dashboard de conversão em produção — prontos para escalar.</p>
       </div>
-      <div class="roadmap-summary-item">
+      <div class="summary-item">
         <h4>Suporte intensivo incluído</h4>
         <p><strong>30 dias de monitoramento 24/7</strong> sem custo adicional. Uptime 99,5% garantido, resposta a incidentes críticos em até 2 horas.</p>
       </div>
@@ -663,32 +805,28 @@ footer p{font-family:var(--font-mono);font-size:.68rem;color:var(--gray-d)}
   </div>
 </section>
 
-<!-- ══ PROPOSTA FINANCEIRA ════════════════════════════════════ -->
-<section id="financeiro">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Proposta Financeira</span>
-      <h2>Investimento</h2>
-      <p>Setup único + manutenção mensal. Sem taxas ocultas.</p>
-    </div>
-
-    <div class="pricing-hero reveal">
-      <div class="price-card highlight">
-        <div class="price-label">Setup Único</div>
-        <div class="price-val">R$<span>8.000</span></div>
+<!-- ══ FINANCEIRO ═════════════════════════════════════════════════ -->
+<section id="financeiro" class="section">
+  <div class="section-inner">
+    <div class="section-eyebrow" data-r><span class="eyebrow-text">Proposta Financeira</span></div>
+    <h2 data-r data-d="1" style="font-size:clamp(2rem,4vw,3rem);margin-bottom:32px">Investimento</h2>
+    <div class="pricing-hero">
+      <div class="price-card hl" data-r>
+        <div class="price-type">Setup Único</div>
+        <div class="price-big">R$<span class="c price-counter" data-target="8000">0</span></div>
         <div class="price-period">pagamento único · sem recorrência</div>
-        <div class="price-break">
+        <div class="price-lines">
           <div class="price-line"><span>Agente SDR IA</span><span>R$ 2.500</span></div>
           <div class="price-line"><span>WhatsApp API + N8N</span><span>R$ 2.000</span></div>
           <div class="price-line"><span>CRM + Calendar</span><span>R$ 2.000</span></div>
           <div class="price-line"><span>Dashboard Analytics</span><span>R$ 1.500</span></div>
         </div>
       </div>
-      <div class="price-card">
-        <div class="price-label">Manutenção Mensal</div>
-        <div class="price-val">R$<span>3.000</span></div>
+      <div class="price-card" data-r data-d="1">
+        <div class="price-type">Manutenção Mensal</div>
+        <div class="price-big">R$<span class="c price-counter" data-target="3000">0</span><span style="font-size:1.4rem;color:var(--mu)">/mês</span></div>
         <div class="price-period">inicia após aprovação da plataforma</div>
-        <div class="price-break">
+        <div class="price-lines">
           <div class="price-line"><span>Agente SDR IA</span><span>R$ 1.000</span></div>
           <div class="price-line"><span>WhatsApp API + N8N</span><span>R$ 800</span></div>
           <div class="price-line"><span>CRM + Calendar</span><span>R$ 700</span></div>
@@ -696,128 +834,234 @@ footer p{font-family:var(--font-mono);font-size:.68rem;color:var(--gray-d)}
         </div>
       </div>
     </div>
-
-    <div class="pricing-table-wrap reveal">
-      <table class="pricing-table">
+    <div style="overflow-x:auto" data-r>
+      <table class="ptable">
         <thead><tr><th>Entrega</th><th>Valor Único</th><th>Manutenção/mês</th></tr></thead>
         <tbody>
           <tr><td>Agente SDR IA (OpenClaw + GPT-4.1)</td><td>R$ 2.500</td><td>R$ 1.000</td></tr>
           <tr><td>WhatsApp Cloud API + N8N</td><td>R$ 2.000</td><td>R$ 800</td></tr>
           <tr><td>CRM (RD Station) + Google Calendar</td><td>R$ 2.000</td><td>R$ 700</td></tr>
           <tr><td>Dashboard Analytics (Looker Studio)</td><td>R$ 1.500</td><td>R$ 500</td></tr>
-          <tr class="total"><td>TOTAL</td><td>R$ 8.000</td><td>R$ 3.000/mês</td></tr>
+          <tr class="tot"><td>TOTAL</td><td>R$ 8.000</td><td>R$ 3.000/mês</td></tr>
         </tbody>
       </table>
-      <p class="pricing-note">* A manutenção mensal inicia após entrega final e aprovação da plataforma.</p>
+      <p class="ptable-note">* Manutenção inicia após entrega final e aprovação da plataforma.</p>
     </div>
-
-    <div class="stack-row reveal">
+    <div class="stack-row" data-r>
       <span class="stack-label">Stack:</span>
-      <span class="stack-chip"><img src="https://cdn.simpleicons.org/whatsapp/25D366" alt=""/>WhatsApp API</span>
-      <span class="stack-chip"><img src="https://cdn.simpleicons.org/n8n/EA4B71" alt=""/>N8N</span>
-      <span class="stack-chip"><img src="https://cdn.simpleicons.org/openai/9ca3af" alt=""/>GPT-4.1</span>
-      <span class="stack-chip"><img src="https://cdn.simpleicons.org/meta/9ca3af" alt=""/>Meta Ads</span>
-      <span class="stack-chip"><img src="https://cdn.simpleicons.org/googlecalendar/4285F4" alt=""/>Google Calendar</span>
-      <span class="stack-chip"><img src="https://cdn.simpleicons.org/looker/4285F4" alt=""/>Looker Studio</span>
+      <span class="stack-chip"><img src="assets/whatsapp.svg" alt="">WhatsApp API</span>
+      <span class="stack-chip"><img src="assets/n8n.svg" alt="">N8N</span>
+      <span class="stack-chip"><img src="assets/openai.svg" alt="" style="filter:invert(1)">GPT-4.1</span>
+      <span class="stack-chip"><img src="assets/meta.svg" alt="">Meta Ads</span>
+      <span class="stack-chip"><img src="assets/googlecalendar.svg" alt="">Google Calendar</span>
+      <span class="stack-chip"><img src="assets/looker.svg" alt="">Looker Studio</span>
     </div>
-
-    <div class="value-box reveal">
+    <div class="value-box" data-r>
       <p>Este sistema transformará o WhatsApp da GVG em uma máquina de qualificação de leads — disponível 24/7, sem risco de banimento, com cada conversa documentada no CRM e cada campanha rastreada no dashboard.</p>
-      <p>Agradecemos a oportunidade de colaborar com a GVG. Nos colocamos à disposição para ajustes ou incrementos nesta proposta. Válida até 17/06/2026.</p>
+      <p>Agradecemos a oportunidade de colaborar com a GVG. Válida até 17/06/2026.</p>
     </div>
   </div>
 </section>
 
-<!-- ══ CONTATO ════════════════════════════════════════════════ -->
-<section id="contato">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Contato</span>
-      <h2>Para dúvidas,<br>entre em contato</h2>
-    </div>
-
-    <div class="cred-strip reveal">
-      <h4>HASH Tecnologia / Automatrix</h4>
-      <span class="cred-badge">Meta Auth Partner</span>
-      <span class="cred-badge">Google Developers Program</span>
-      <span class="cred-badge">Anthropic MCP Certified</span>
-      <span class="cred-badge">N8N · OpenClaw · WhatsApp API Specialist</span>
-    </div>
-
-    <div class="contact-grid reveal">
-      <div class="contact-card">
-        <label>📱 Telefone</label>
-        <a href="tel:+5521988407505">+55 (21) 98840-7505</a>
-        <a href="tel:+5519994728845">+55 (19) 99472-8845</a>
+<!-- ══ CONTATO ════════════════════════════════════════════════════ -->
+<section id="contato" class="section">
+  <div class="section-inner">
+    <div class="section-eyebrow" data-r><span class="eyebrow-text">Contato</span></div>
+    <div class="contact-layout" style="margin-top:32px">
+      <div>
+        <div class="cred-banner" data-r>
+          <h4>HASH Tecnologia / Automatrix</h4>
+          <div class="cred-tags">
+            <span class="cred-tag">Meta Auth Partner</span>
+            <span class="cred-tag">Google Developers Program</span>
+            <span class="cred-tag">Anthropic MCP Certified</span>
+            <span class="cred-tag">N8N · OpenClaw Specialist</span>
+          </div>
+        </div>
+        <div class="contact-cards" data-r data-d="1">
+          <div class="cc">
+            <label>Telefone</label>
+            <a href="tel:+5521988407505">+55 (21) 98840-7505</a>
+            <a href="tel:+5519994728845">+55 (19) 99472-8845</a>
+          </div>
+          <div class="cc">
+            <label>Email</label>
+            <a href="mailto:lucas@automatrix-ia.com">lucas@automatrix-ia.com</a>
+          </div>
+          <div class="cc">
+            <label>Instagram</label>
+            <a href="https://instagram.com/automatrix.ia" target="_blank" rel="noopener">@automatrix.ia</a>
+          </div>
+          <div class="cc">
+            <label>Localização</label>
+            <span>Jd Guedala</span>
+            <span>São Paulo — SP</span>
+          </div>
+        </div>
       </div>
-      <div class="contact-card">
-        <label>✉ Email</label>
-        <a href="mailto:lucas@automatrix-ia.com">lucas@automatrix-ia.com</a>
+      <div class="cta-card" data-r data-d="2">
+        <div class="cta-valid">Válida até 17/06/2026</div>
+        <h2>Pronto para transformar o WhatsApp da GVG?</h2>
+        <p>Um SDR que nunca dorme, nunca bane e entrega cada conversa documentada ao Closer certo.</p>
+        <a href="mailto:lucas@automatrix-ia.com?subject=Aceito%20a%20proposta%20GVG%20SDR%20WhatsApp" class="btn btn-p" style="font-size:.95rem;padding:15px 36px;margin:0 auto">
+          Aceitar proposta →
+        </a>
+        <div class="cta-fine">R$ 8.000 setup · R$ 3.000/mês · GO LIVE em 30 dias</div>
       </div>
-      <div class="contact-card">
-        <label>📷 Instagram</label>
-        <a href="https://instagram.com/automatrix.ia" target="_blank" rel="noopener">@automatrix.ia</a>
-      </div>
-      <div class="contact-card">
-        <label>📍 Localização</label>
-        <span>Jd Guedala</span>
-        <span>São Paulo — SP</span>
-      </div>
-    </div>
-
-    <div class="cta-final reveal">
-      <span class="tag">Válida até 17/06/2026</span>
-      <h2>Pronto para transformar<br>o WhatsApp da GVG?</h2>
-      <p>Um SDR que nunca dorme, nunca bane e entrega cada conversa documentada ao Closer certo.</p>
-      <a href="mailto:lucas@automatrix-ia.com?subject=Aceito%20a%20proposta%20GVG%20SDR%20WhatsApp&body=Ol%C3%A1%20Lucas%2C%20tenho%20interesse%20em%20avan%C3%A7ar%20com%20a%20proposta." class="btn btn-primary" style="font-size:1rem;padding:16px 40px">
-        Aceitar proposta →
-      </a>
-      <div class="cta-validity">R$ 8.000 setup · R$ 3.000/mês · GO LIVE em 30 dias</div>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>Automatrix © 2026 · Inteligência Artificial · Proposta confidencial para GVG — Grupo Vládia Gonçalves</p>
+  <p>Automatrix © 2026 · Inteligência Artificial</p>
+  <p>Proposta confidencial para GVG — Grupo Vládia Gonçalves</p>
 </footer>
 
 <script>
-// ── Scroll reveal ──────────────────────────────────────────────
-const io = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})
-},{threshold:.1,rootMargin:'0px 0px -40px 0px'})
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el))
+// ── Canvas particle background ─────────────────────────────────────────
+const canvas = document.getElementById('bg-canvas')
+const ctx = canvas.getContext('2d')
+let W, H, particles = [], raf
 
-// ── Counter animation ──────────────────────────────────────────
-const counters=document.querySelectorAll('.num[data-target]')
-const cio=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(!e.isIntersecting)return
-    const el=e.target,target=+el.dataset.target,dur=1400
-    let start=null
-    function step(ts){
-      if(!start)start=ts
-      const p=Math.min((ts-start)/dur,1)
-      const ease=1-Math.pow(1-p,3)
-      el.textContent=Math.round(ease*target)
-      if(p<1)requestAnimationFrame(step)
-      else el.textContent=target
-    }
-    requestAnimationFrame(step)
-    cio.unobserve(el)
+function resize() {
+  W = canvas.width = window.innerWidth
+  H = canvas.height = document.getElementById('hero').offsetHeight
+}
+
+function Particle() {
+  this.x = Math.random() * W
+  this.y = Math.random() * H
+  this.vx = (Math.random() - .5) * .3
+  this.vy = (Math.random() - .5) * .3
+  this.r = Math.random() * 1.5 + .5
+}
+
+Particle.prototype.update = function() {
+  this.x += this.vx; this.y += this.vy
+  if (this.x < 0 || this.x > W) this.vx *= -1
+  if (this.y < 0 || this.y > H) this.vy *= -1
+}
+
+function initParticles() {
+  particles = Array.from({length: 55}, () => new Particle())
+}
+
+function drawParticles() {
+  ctx.clearRect(0, 0, W, H)
+  const G = '#22c55e'
+  particles.forEach(p => {
+    p.update()
+    ctx.beginPath()
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2)
+    ctx.fillStyle = 'rgba(34,197,94,.35)'
+    ctx.fill()
+    particles.forEach(q => {
+      const d = Math.hypot(p.x-q.x, p.y-q.y)
+      if (d < 120) {
+        ctx.beginPath()
+        ctx.moveTo(p.x, p.y)
+        ctx.lineTo(q.x, q.y)
+        ctx.strokeStyle = `rgba(34,197,94,${.15*(1-d/120)})`
+        ctx.lineWidth = .5
+        ctx.stroke()
+      }
+    })
   })
-},{threshold:.5})
-counters.forEach(c=>cio.observe(c))
+  raf = requestAnimationFrame(drawParticles)
+}
 
-// ── Animate flow arrows sequentially ──────────────────────────
-const flowLines=document.querySelectorAll('.flow-arrow-line,.flow-arrow-vline')
-flowLines.forEach((l,i)=>{
-  l.style.animationDelay=`${i*0.3}s`
+resize(); initParticles(); drawParticles()
+window.addEventListener('resize', () => { resize(); initParticles() })
+
+// ── Title character split animation ────────────────────────────────────
+document.querySelectorAll('.hero-title .line1, .hero-title .line2').forEach((line, li) => {
+  const text = line.textContent
+  line.innerHTML = text.split('').map((c, i) =>
+    `<span class="char" style="animation-delay:${(li * text.length + i) * 0.04 + .3}s">${c === ' ' ? '&nbsp;' : c}</span>`
+  ).join('')
 })
 
-// Trigger initial reveal for above-fold elements
-document.querySelectorAll('#hero .reveal').forEach(el=>{
-  setTimeout(()=>el.classList.add('visible'),100+[...document.querySelectorAll('#hero .reveal')].indexOf(el)*120)
+// ── Scroll reveal ───────────────────────────────────────────────────────
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) }
+  })
+}, { threshold: .08, rootMargin: '0px 0px -40px 0px' })
+document.querySelectorAll('[data-r]').forEach(el => io.observe(el))
+
+// Trigger hero elements immediately
+setTimeout(() => {
+  document.querySelectorAll('#hero [data-r]').forEach(el => el.classList.add('in'))
+}, 100)
+
+// ── Counter animation ────────────────────────────────────────────────────
+function animateCounter(el, target, format) {
+  const dur = 1200, start = performance.now()
+  function step(now) {
+    const p = Math.min((now - start) / dur, 1)
+    const ease = 1 - Math.pow(1 - p, 3)
+    el.textContent = format ? format(Math.round(ease * target)) : Math.round(ease * target)
+    if (p < 1) requestAnimationFrame(step)
+    else el.textContent = format ? format(target) : target
+  }
+  requestAnimationFrame(step)
+}
+
+const cio = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return
+    const el = e.target, t = +el.dataset.target
+    animateCounter(el, t)
+    cio.unobserve(el)
+  })
+}, { threshold: .5 })
+document.querySelectorAll('.counter').forEach(c => cio.observe(c))
+
+// Price counters
+const pcio = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return
+    const el = e.target, t = +el.dataset.target
+    animateCounter(el, t, v => v.toLocaleString('pt-BR'))
+    pcio.unobserve(el)
+  })
+}, { threshold: .5 })
+document.querySelectorAll('.price-counter').forEach(c => pcio.observe(c))
+
+// ── SVG lines draw on scroll ──────────────────────────────────────────
+const archSvg = document.querySelector('.arch-svg-wrap')
+const lineObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      document.querySelectorAll('.draw-line').forEach((l, i) => {
+        setTimeout(() => l.classList.add('in'), i * 120)
+      })
+      lineObs.unobserve(e.target)
+    }
+  })
+}, { threshold: .3 })
+if (archSvg) lineObs.observe(archSvg)
+
+// ── 3D tilt on feat cards ─────────────────────────────────────────────
+document.querySelectorAll('.feat').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect()
+    const x = ((e.clientX - r.left) / r.width - .5) * 8
+    const y = ((e.clientY - r.top) / r.height - .5) * 8
+    card.style.transform = `perspective(700px) rotateX(${-y}deg) rotateY(${x}deg) translateZ(6px) translateY(-2px)`
+  })
+  card.addEventListener('mouseleave', () => { card.style.transform = '' })
+})
+
+// ── Magnetic buttons ──────────────────────────────────────────────────
+document.querySelectorAll('.btn').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const r = btn.getBoundingClientRect()
+    const x = (e.clientX - r.left - r.width/2) * .15
+    const y = (e.clientY - r.top - r.height/2) * .15
+    btn.style.transform = `translate(${x}px,${y}px)`
+  })
+  btn.addEventListener('mouseleave', () => { btn.style.transform = '' })
 })
 </script>
 </body>
