@@ -75,21 +75,28 @@ nav{
 /* ─── HERO ───────────────────────────────────────────────────────── */
 #hero{
   min-height:100svh;padding:0;
-  display:grid;grid-template-rows:60px 1fr auto;
+  display:flex;flex-direction:column;
   position:relative;overflow:hidden;
 }
 canvas#bg-canvas{position:absolute;inset:0;pointer-events:none;z-index:0}
 
-.hero-body{
-  display:grid;grid-template-columns:1fr 420px;gap:0;align-items:center;
-  padding:40px 40px 0;max-width:1400px;margin:0 auto;width:100%;
-  position:relative;z-index:1;
+/* flex:1 wrapper so marquee stays at bottom */
+.hero-content{
+  flex:1;display:flex;align-items:center;
+  padding-top:60px; /* clear fixed nav */
+  position:relative;z-index:1;width:100%;
 }
-@media(max-width:900px){.hero-body{grid-template-columns:1fr;padding:40px 24px 0}}
+
+.hero-body{
+  display:grid;grid-template-columns:1fr 440px;gap:48px;align-items:center;
+  padding:60px 80px;max-width:1400px;margin:0 auto;width:100%;
+}
+@media(max-width:1100px){.hero-body{padding:60px 48px;gap:32px}}
+@media(max-width:900px){.hero-body{grid-template-columns:1fr;padding:40px 24px;gap:40px}}
 
 /* left */
-.hero-l{padding-right:64px}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;margin-bottom:32px}
+.hero-l{padding-right:48px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;margin-bottom:28px}
 .hero-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--g);animation:pulse-dot 2s ease-in-out infinite}
 @keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.6)}50%{box-shadow:0 0 0 8px rgba(34,197,94,0)}}
 
@@ -129,7 +136,7 @@ canvas#bg-canvas{position:absolute;inset:0;pointer-events:none;z-index:0}
 /* marquee strip */
 .marquee-strip{
   position:relative;z-index:1;border-top:1px solid var(--b1);
-  overflow:hidden;padding:14px 0;margin-top:40px;
+  overflow:hidden;padding:14px 0;
   background:linear-gradient(to right,var(--bg) 0%,transparent 5%,transparent 95%,var(--bg) 100%);
 }
 .marquee-inner{display:flex;gap:0;animation:marquee 28s linear infinite;width:max-content;white-space:nowrap}
@@ -437,47 +444,50 @@ footer p{font-family:var(--fm);font-size:.62rem;color:var(--mu)}
 <!-- ══ HERO ══════════════════════════════════════════════════════ -->
 <section id="hero">
   <canvas id="bg-canvas"></canvas>
-  <div class="hero-body" style="padding-top:80px">
-    <!-- LEFT -->
-    <div class="hero-l">
-      <div class="hero-badge" data-r>
-        <div class="hero-badge-dot"></div>
-        <span class="mono">GVG Marcas e Patentes · Proposta Exclusiva</span>
-      </div>
-      <h1 class="hero-title" id="hero-title" data-r data-d="1">
-        <span class="line1">SDR</span><br>
-        <span class="line1">Inteligente</span><br>
-        <span class="line2">via WhatsApp</span>
-      </h1>
-      <p class="hero-sub" data-r data-d="2">
-        Um agente de vendas disponível <strong>24/7</strong> com o tom de voz da Vládia Gonçalves — qualifica leads, registra no CRM e agenda reuniões automaticamente. <strong>Zero risco de banimento.</strong>
-      </p>
-      <div class="hero-ctas" data-r data-d="3">
-        <a href="#vsl" class="btn btn-p">▶ Assistir apresentação</a>
-        <a href="#financeiro" class="btn btn-g">Ver proposta financeira</a>
-      </div>
-    </div>
-    <!-- RIGHT panel -->
-    <div class="hero-r" data-r data-d="2">
-      <div class="stats-grid">
-        <div class="stat-box">
-          <div class="stat-val"><span class="c counter" data-target="24">0</span>/<span class="c counter" data-target="7">0</span></div>
-          <div class="stat-lbl">Disponibilidade</div>
+  <!-- hero-content is flex:1 so marquee stays pinned at bottom -->
+  <div class="hero-content">
+    <div class="hero-body">
+      <!-- LEFT -->
+      <div class="hero-l">
+        <div class="hero-badge" data-r>
+          <div class="hero-badge-dot"></div>
+          <span class="mono">GVG Marcas e Patentes · Proposta Exclusiva</span>
         </div>
-        <div class="stat-box">
-          <div class="stat-val"><span class="counter" data-target="30">0</span> <span style="font-size:1rem;color:var(--mu)">dias</span></div>
-          <div class="stat-lbl">Prazo de entrega</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-val">R$<span class="c counter" data-target="8">0</span>k</div>
-          <div class="stat-lbl">Setup único</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-val"><span class="counter" data-target="7">0</span> <span style="font-size:1rem;color:var(--mu)">int.</span></div>
-          <div class="stat-lbl">Integrações</div>
+        <h1 class="hero-title" id="hero-title" data-r data-d="1">
+          <span class="line1">SDR</span><br>
+          <span class="line1">Inteligente</span><br>
+          <span class="line2">via WhatsApp</span>
+        </h1>
+        <p class="hero-sub" data-r data-d="2">
+          Um agente de vendas disponível <strong>24/7</strong> com o tom de voz da Vládia Gonçalves — qualifica leads, registra no CRM e agenda reuniões automaticamente. <strong>Zero risco de banimento.</strong>
+        </p>
+        <div class="hero-ctas" data-r data-d="3">
+          <a href="#vsl" class="btn btn-p">▶ Assistir apresentação</a>
+          <a href="#financeiro" class="btn btn-g">Ver proposta financeira</a>
         </div>
       </div>
-      <div class="hero-r-foot">SDR ativo 24h · Sem intervenção manual</div>
+      <!-- RIGHT panel -->
+      <div class="hero-r" data-r data-d="2">
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-val"><span class="c counter" data-target="24">0</span>/<span class="c counter" data-target="7">0</span></div>
+            <div class="stat-lbl">Disponibilidade</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val"><span class="counter" data-target="30">0</span> <span style="font-size:1rem;color:var(--mu)">dias</span></div>
+            <div class="stat-lbl">Prazo de entrega</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val">R$<span class="c counter" data-target="8">0</span>k</div>
+            <div class="stat-lbl">Setup único</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val"><span class="counter" data-target="7">0</span> <span style="font-size:1rem;color:var(--mu)">int.</span></div>
+            <div class="stat-lbl">Integrações</div>
+          </div>
+        </div>
+        <div class="hero-r-foot">SDR ativo 24h · Sem intervenção manual</div>
+      </div>
     </div>
   </div>
   <!-- Marquee -->
