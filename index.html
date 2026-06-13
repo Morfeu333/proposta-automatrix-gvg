@@ -1,248 +1,372 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Proposta SDR Inteligente via WhatsApp — Automatrix × GVG</title>
-  <meta name="description" content="Proposta comercial: SDR Inteligente via WhatsApp para GVG — Grupo Vládia Gonçalves. Automatrix Inteligência Artificial." />
-  <style>
-    :root {
-      --bg: #1e1e1e;
-      --card: #2b2b2b;
-      --card2: #323232;
-      --green: #22c55e;
-      --green-l: #4ade80;
-      --white: #f9fafb;
-      --gray: #d1d5db;
-      --gray-dim: #9ca3af;
-      --gray-dark: #6b7280;
-      --yellow: #fbbf24;
-      --orange: #f97316;
-      --red: #ef4444;
-      --blue: #60a5fa;
-      --purple: #a78bfa;
-      --radius: 10px;
-      --font: 'Inter', system-ui, -apple-system, sans-serif;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--white); font-family: var(--font); line-height: 1.6; }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>SDR Inteligente via WhatsApp — Automatrix × GVG</title>
+<meta name="description" content="Proposta comercial: SDR IA 24/7 via WhatsApp para GVG. R$8.000 setup · R$3.000/mês · GO LIVE em 30 dias."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#07100a;--bg2:#0c160e;--surface:#121d14;--surface2:#1a2a1c;
+  --border:#1e2e20;--border2:#263529;
+  --green:#22c55e;--green-l:#4ade80;--green-d:#16a34a;
+  --green-glow:rgba(34,197,94,.18);--green-glow2:rgba(34,197,94,.08);
+  --white:#edfaef;--gray:#7d9480;--gray-l:#b8ccbb;--gray-d:#4a5e4c;
+  --yellow:#fbbf24;--orange:#f97316;--red:#f87171;--blue:#60a5fa;--purple:#a78bfa;
+  --font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;--font-mono:'JetBrains Mono',monospace;
+  --r:12px;--r-sm:8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--green-d);border-radius:99px}
+body{background:var(--bg);color:var(--white);font-family:var(--font-body);line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='.6' fill='%2322c55e' opacity='.07'/%3E%3C/svg%3E") repeat;pointer-events:none;z-index:0}
 
-    /* ── Typography ── */
-    h1 { font-size: clamp(2.4rem, 6vw, 5rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; }
-    h2 { font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 800; line-height: 1.1; }
-    h3 { font-size: 1.1rem; font-weight: 700; }
-    p  { color: var(--gray); font-size: 0.95rem; }
+a{color:inherit;text-decoration:none}
+img{display:block}
 
-    /* ── Layout ── */
-    .container { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
-    section { padding: 80px 0; }
-    section + section { border-top: 1px solid #333; }
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+section{padding:96px 0;border-top:1px solid var(--border)}
 
-    /* ── Badges / Tags ── */
-    .badge { display: inline-block; background: #1a3a28; color: var(--green); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; border: 1px solid #22c55e44; }
+/* TYPOGRAPHY */
+.eyebrow{font-family:var(--font-mono);font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--green);display:inline-flex;align-items:center;gap:8px}
+.eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--green)}
+h1{font-family:var(--font-head);font-weight:800;font-size:clamp(3.2rem,8vw,7rem);line-height:1.0;letter-spacing:-.03em}
+h2{font-family:var(--font-head);font-weight:800;font-size:clamp(2rem,4vw,3.2rem);line-height:1.08;letter-spacing:-.02em}
+h3{font-family:var(--font-head);font-weight:700;font-size:1.05rem;line-height:1.3}
+p{color:var(--gray-l);font-size:.93rem;line-height:1.7}
+strong{color:var(--white);font-weight:600}
 
-    /* ── Buttons ── */
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; }
-    .btn-green { background: var(--green); color: #111; }
-    .btn-green:hover { background: var(--green-l); transform: translateY(-1px); }
-    .btn-outline { background: transparent; color: var(--white); border: 1.5px solid #444; }
-    .btn-outline:hover { border-color: var(--green); color: var(--green); }
+/* BADGES */
+.tag{display:inline-block;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);color:var(--green-l);font-family:var(--font-mono);font-size:.65rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:99px}
 
-    /* ── HERO ── */
-    #hero { padding: 0; min-height: 100vh; display: flex; flex-direction: column; }
-    .hero-bar { background: #111; padding: 14px 1.5rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #2a2a2a; }
-    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .logo-icon { width: 32px; height: 32px; background: var(--green); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1rem; color: #111; }
-    .logo-text { font-weight: 800; font-size: 0.9rem; color: var(--white); letter-spacing: 0.05em; }
-    .logo-sub { font-size: 0.68rem; color: var(--gray-dim); display: block; }
-    .nav-year { background: var(--card); border-radius: 6px; padding: 6px 14px; font-weight: 700; font-size: 1rem; color: var(--white); }
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:var(--r-sm);font-weight:600;font-size:.9rem;transition:all .2s;cursor:pointer;border:none;font-family:var(--font-body)}
+.btn-primary{background:var(--green);color:#050e07;box-shadow:0 0 30px rgba(34,197,94,.3)}
+.btn-primary:hover{background:var(--green-l);transform:translateY(-2px);box-shadow:0 4px 40px rgba(34,197,94,.4)}
+.btn-ghost{background:transparent;color:var(--white);border:1px solid var(--border2)}
+.btn-ghost:hover{border-color:var(--green);color:var(--green)}
 
-    .hero-content { flex: 1; display: flex; align-items: center; padding: 60px 1.5rem 80px; }
-    .hero-inner { max-width: 960px; margin: 0 auto; width: 100%; }
-    .hero-label { margin-bottom: 24px; }
-    .hero-title { margin-bottom: 20px; }
-    .hero-title .accent { color: var(--green); }
-    .hero-subtitle { font-size: 1.2rem; color: var(--gray); max-width: 560px; margin-bottom: 40px; }
-    .hero-meta { display: flex; flex-wrap: wrap; gap: 32px; margin-bottom: 48px; }
-    .hero-meta-item label { font-size: 0.75rem; color: var(--gray-dim); text-transform: uppercase; letter-spacing: 0.07em; display: block; margin-bottom: 4px; }
-    .hero-meta-item span { font-weight: 700; font-size: 1rem; color: var(--white); }
-    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-    .hero-divider { height: 1px; background: linear-gradient(90deg, var(--green), transparent); margin-top: 60px; }
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
 
-    /* ── VSL VIDEO ── */
-    #vsl { background: #111; padding: 80px 0; }
-    .vsl-placeholder { background: var(--card); border-radius: var(--radius); border: 2px dashed #3a3a3a; padding: 60px 40px; text-align: center; }
-    .vsl-icon { font-size: 3rem; margin-bottom: 16px; }
-    .vsl-placeholder h3 { color: var(--white); margin-bottom: 8px; font-size: 1.2rem; }
-    .vsl-placeholder p { color: var(--gray-dim); font-size: 0.9rem; }
-    .vsl-video { width: 100%; aspect-ratio: 16/9; border-radius: var(--radius); overflow: hidden; background: #000; }
-    .vsl-video video, .vsl-video iframe { width: 100%; height: 100%; display: block; }
+/* ═══ NAV ═══════════════════════════════════════════════════ */
+nav{position:sticky;top:0;z-index:100;background:rgba(7,16,10,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-icon{width:34px;height:34px;background:var(--green);border-radius:7px;display:grid;place-items:center;font-family:var(--font-head);font-weight:800;font-size:1rem;color:#050e07;box-shadow:0 0 16px rgba(34,197,94,.4)}
+.nav-name{font-family:var(--font-head);font-weight:800;font-size:.85rem;letter-spacing:.06em;color:var(--white)}
+.nav-sub{font-family:var(--font-mono);font-size:.6rem;color:var(--gray);letter-spacing:.06em}
+.nav-badge{font-family:var(--font-mono);font-size:.7rem;font-weight:500;color:var(--gray-l);background:var(--surface);border:1px solid var(--border2);padding:5px 12px;border-radius:var(--r-sm)}
+.nav-links{display:flex;gap:24px}
+.nav-links a{font-size:.82rem;color:var(--gray);transition:color .2s}
+.nav-links a:hover{color:var(--green)}
+@media(max-width:640px){.nav-links{display:none}}
 
-    /* ── SECTION HEADERS ── */
-    .section-header { margin-bottom: 48px; }
-    .section-header h2 { margin-top: 12px; }
-    .section-header p { margin-top: 12px; font-size: 1rem; max-width: 540px; }
+/* ═══ HERO ══════════════════════════════════════════════════ */
+#hero{border:none;padding:0;min-height:100svh;display:grid;grid-template-rows:auto 1fr auto;position:relative;overflow:hidden}
+.hero-glow{position:absolute;top:-20%;left:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(34,197,94,.12) 0%,transparent 70%);pointer-events:none;animation:pulse-glow 4s ease-in-out infinite}
+.hero-glow2{top:20%;right:-10%;left:auto;width:400px;height:400px;background:radial-gradient(circle,rgba(34,197,94,.07) 0%,transparent 70%);animation-delay:2s}
+@keyframes pulse-glow{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.1)}}
 
-    /* ── PILLAR CARDS ── */
-    .pillars { display: flex; flex-direction: column; gap: 16px; }
-    .pillar { display: grid; grid-template-columns: 48px 1fr; gap: 20px; background: var(--card); border-radius: var(--radius); padding: 24px; border: 1px solid #3a3a3a; transition: border-color 0.2s; }
-    .pillar:hover { border-color: var(--green); }
-    .pillar-num { width: 48px; height: 48px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.85rem; color: #111; flex-shrink: 0; }
-    .pillar h3 { font-size: 1.1rem; color: var(--white); margin-bottom: 8px; }
-    .pillar p { font-size: 0.92rem; }
+.hero-inner{padding:80px 24px 64px;max-width:1060px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:40px;position:relative;z-index:1}
+.hero-pre{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.hero-client{font-family:var(--font-mono);font-size:.72rem;color:var(--gray);border:1px solid var(--border2);padding:6px 14px;border-radius:99px;display:inline-flex;align-items:center;gap:6px}
+.hero-client::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 1.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 
-    /* ── FEATURES GRID ── */
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
-    .feature { background: var(--card); border-radius: 8px; padding: 20px; border-left: 3px solid var(--green); }
-    .feature-label { font-size: 0.72rem; font-weight: 700; color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
-    .feature h3 { font-size: 0.95rem; color: var(--white); margin-bottom: 8px; }
-    .feature p { font-size: 0.85rem; }
+.hero-title{display:flex;flex-direction:column;gap:4px}
+.hero-t1{color:var(--white)}
+.hero-t2{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.hero-t2-text{color:var(--green);text-shadow:0 0 60px rgba(34,197,94,.5)}
+.wa-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.3);padding:4px 14px 4px 8px;border-radius:99px;vertical-align:middle;margin-left:4px}
+.wa-badge img{width:22px;height:22px;filter:drop-shadow(0 0 8px rgba(37,211,102,.6))}
+.wa-badge span{font-family:var(--font-mono);font-size:.72rem;color:#25d366;letter-spacing:.04em}
 
-    /* ── FLOW DIAGRAM ── */
-    .flow { display: flex; flex-direction: column; gap: 0; max-width: 680px; margin: 0 auto; }
-    .flow-step { display: grid; grid-template-columns: 120px 1fr; gap: 0; }
-    .flow-left { display: flex; flex-direction: column; align-items: center; }
-    .flow-dot { width: 40px; height: 40px; border-radius: 50%; background: var(--green); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.8rem; color: #111; flex-shrink: 0; z-index: 1; }
-    .flow-line { flex: 1; width: 2px; background: #3a3a3a; }
-    .flow-last .flow-line { display: none; }
-    .flow-content { background: var(--card); border-radius: 8px; padding: 16px 20px; margin: 0 0 12px 0; border: 1px solid #3a3a3a; }
-    .flow-content h3 { font-size: 0.95rem; color: var(--green); margin-bottom: 4px; }
-    .flow-content p { font-size: 0.85rem; }
+.hero-sub{font-size:1.05rem;color:var(--gray-l);max-width:520px;line-height:1.65}
 
-    .rule-card { background: var(--card2); border-radius: var(--radius); padding: 24px; border-left: 4px solid var(--green); margin-top: 32px; }
-    .rule-card strong { color: var(--green); display: block; margin-bottom: 6px; }
+/* Stats strip */
+.hero-stats{display:flex;gap:0;background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);overflow:hidden;width:fit-content}
+.stat{padding:20px 32px;display:flex;flex-direction:column;gap:4px;border-right:1px solid var(--border2)}
+.stat:last-child{border-right:none}
+.stat-val{font-family:var(--font-head);font-weight:800;font-size:1.6rem;color:var(--white);line-height:1}
+.stat-val .num{color:var(--green)}
+.stat-lbl{font-family:var(--font-mono);font-size:.62rem;color:var(--gray);letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:700px){.hero-stats{flex-wrap:wrap;width:100%}.stat{flex:1 1 calc(50% - 1px)}}
 
-    /* ── ROADMAP ── */
-    .roadmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
-    .phase { background: var(--card); border-radius: var(--radius); padding: 24px; position: relative; overflow: hidden; border: 1px solid #3a3a3a; }
-    .phase::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
-    .phase-1::before { background: var(--gray-dim); }
-    .phase-2::before { background: var(--yellow); }
-    .phase-3::before { background: var(--orange); }
-    .phase-4::before { background: var(--red); }
-    .phase-num { font-size: 2rem; font-weight: 900; color: var(--white); line-height: 1; margin-bottom: 4px; }
-    .phase-date { font-size: 0.75rem; color: var(--green); font-weight: 700; margin-bottom: 16px; }
-    .phase ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-    .phase li { font-size: 0.85rem; color: var(--gray); padding-left: 14px; position: relative; }
-    .phase li::before { content: '•'; position: absolute; left: 0; color: var(--green); }
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
 
-    /* ── PRICING ── */
-    .pricing-table { width: 100%; border-collapse: collapse; border-radius: var(--radius); overflow: hidden; }
-    .pricing-table th { background: #111; color: var(--green); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.07em; padding: 14px 16px; text-align: left; }
-    .pricing-table th:not(:first-child) { text-align: center; }
-    .pricing-table td { padding: 14px 16px; font-size: 0.92rem; border-bottom: 1px solid #2a2a2a; }
-    .pricing-table td:not(:first-child) { text-align: center; }
-    .pricing-table tr:nth-child(even) td { background: var(--card2); }
-    .pricing-table tr:nth-child(odd) td { background: var(--card); }
-    .pricing-table .total td { background: var(--green) !important; color: #111; font-weight: 800; font-size: 1rem; }
-    .pricing-note { font-size: 0.8rem; color: var(--gray-dim); margin-top: 12px; font-style: italic; }
+/* ═══ VSL ════════════════════════════════════════════════════ */
+#vsl{padding:80px 0;background:var(--bg2)}
+.vsl-wrap{max-width:860px;margin:0 auto;padding:0 24px}
+.vsl-header{text-align:center;margin-bottom:36px}
+.vsl-header h2{margin-top:12px}
+.vsl-container{background:var(--surface);border:2px dashed var(--border2);border-radius:var(--r);aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;position:relative;overflow:hidden;transition:border-color .3s}
+.vsl-container:hover{border-color:var(--green)}
+.vsl-container::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--green-glow2) 0%,transparent 60%)}
+.vsl-play{width:72px;height:72px;border-radius:50%;background:rgba(34,197,94,.15);border:2px solid rgba(34,197,94,.4);display:grid;place-items:center;animation:pulse-ring 2s ease-in-out infinite}
+@keyframes pulse-ring{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.3)}50%{box-shadow:0 0 0 16px rgba(34,197,94,0)}}
+.vsl-play svg{color:var(--green);margin-left:4px}
+.vsl-container h3{font-family:var(--font-head);font-size:1.1rem;color:var(--white)}
+.vsl-container p{font-size:.85rem;color:var(--gray)}
 
-    .stack-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
-    .stack-tag { background: var(--card); border: 1px solid #3a3a3a; border-radius: 6px; padding: 5px 12px; font-size: 0.8rem; color: var(--gray); }
+/* ═══ PLANO ══════════════════════════════════════════════════ */
+.section-head{display:flex;flex-direction:column;gap:14px;margin-bottom:52px}
+.section-head h2{margin:0}
+.section-head p{max-width:480px}
 
-    .value-callout { background: var(--card); border-radius: var(--radius); padding: 28px; margin-top: 28px; border-top: 3px solid var(--green); }
-    .value-callout p { font-size: 0.95rem; color: var(--gray); }
-    .value-callout p + p { margin-top: 10px; color: var(--gray-dim); font-size: 0.85rem; font-style: italic; }
+.pillars{display:grid;gap:16px}
+.pillar-card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:32px;display:grid;grid-template-columns:64px 1fr;gap:24px;transition:border-color .25s,background .25s,transform .25s}
+.pillar-card:hover{border-color:var(--green);background:var(--surface2);transform:translateX(4px)}
+.pillar-num{width:64px;height:64px;background:var(--green);border-radius:50%;display:grid;place-items:center;font-family:var(--font-head);font-weight:800;font-size:1rem;color:#050e07;flex-shrink:0;box-shadow:0 0 24px rgba(34,197,94,.35);align-self:start}
+.pillar-card h3{font-size:1.15rem;color:var(--white);margin-bottom:10px}
+.pillar-card p{font-size:.93rem}
 
-    /* ── CONTACT ── */
-    #contact { background: #111; }
-    .cred-card { background: var(--card); border-radius: var(--radius); padding: 28px; margin-bottom: 32px; }
-    .cred-card h3 { color: var(--white); margin-bottom: 16px; }
-    .cred-list { display: flex; flex-direction: column; gap: 8px; }
-    .cred-list li { list-style: none; font-size: 0.9rem; color: var(--gray-dim); padding-left: 18px; position: relative; }
-    .cred-list li::before { content: '✦'; position: absolute; left: 0; color: var(--green); font-size: 0.7rem; top: 2px; }
+/* ═══ FEATURES ═══════════════════════════════════════════════ */
+#funcionalidades{background:var(--bg2)}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+.feat{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:24px;border-left:3px solid transparent;transition:border-left-color .25s,background .25s;display:flex;flex-direction:column;gap:12px}
+.feat:hover{border-left-color:var(--green);background:var(--surface2)}
+.feat-top{display:flex;align-items:center;justify-content:space-between}
+.feat-label{font-family:var(--font-mono);font-size:.62rem;font-weight:500;color:var(--green);letter-spacing:.1em;text-transform:uppercase}
+.feat-icon{width:32px;height:32px;border-radius:6px;overflow:hidden;display:grid;place-items:center;background:var(--surface2)}
+.feat-icon img{width:20px;height:20px;object-fit:contain}
+.feat h3{font-size:.95rem;color:var(--white);margin:0}
+.feat p{font-size:.84rem;margin:0}
 
-    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
-    .contact-card { background: var(--card); border-radius: 8px; padding: 20px; }
-    .contact-card label { font-size: 0.72rem; color: var(--green); font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; display: block; margin-bottom: 8px; }
-    .contact-card a, .contact-card span { display: block; color: var(--white); text-decoration: none; font-size: 0.92rem; }
-    .contact-card a:hover { color: var(--green-l); }
+/* ═══ ARQUITETURA ════════════════════════════════════════════ */
+.arch-wrap{position:relative}
 
-    /* ── FOOTER ── */
-    footer { background: #111; border-top: 1px solid #2a2a2a; padding: 24px 1.5rem; text-align: center; }
-    footer p { font-size: 0.8rem; color: var(--gray-dark); }
+/* Flow diagram */
+.flow-diagram{display:flex;flex-direction:column;gap:0;align-items:center}
 
-    /* ── Scroll anchor offset ── */
-    [id] { scroll-margin-top: 80px; }
+/* Row */
+.flow-row{display:flex;align-items:center;gap:0;justify-content:center;width:100%}
 
-    /* ── Mobile ── */
-    @media (max-width: 600px) {
-      .hero-meta { gap: 20px; }
-      .pillar { grid-template-columns: 1fr; }
-      .pillar-num { width: 36px; height: 36px; font-size: 0.75rem; }
-      .flow-step { grid-template-columns: 56px 1fr; }
-    }
-  </style>
+/* Node */
+.flow-node{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:100px}
+.flow-box{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r-sm);padding:14px 18px;display:flex;flex-direction:column;align-items:center;gap:8px;width:110px;transition:border-color .25s,box-shadow .25s;position:relative}
+.flow-box:hover{border-color:var(--green);box-shadow:0 0 20px var(--green-glow)}
+.flow-box img{width:28px;height:28px;object-fit:contain}
+.flow-box-icon{width:28px;height:28px;border-radius:6px;display:grid;place-items:center;font-family:var(--font-head);font-weight:800;font-size:.85rem}
+.flow-box-name{font-family:var(--font-mono);font-size:.6rem;color:var(--gray-l);text-align:center;line-height:1.3;letter-spacing:.04em}
+.flow-box-sub{font-size:.58rem;color:var(--gray);text-align:center}
+
+/* Connectors */
+.flow-arrow{display:flex;align-items:center;flex:0 0 auto;padding:0 6px}
+.flow-arrow-line{height:2px;background:var(--border2);position:relative;overflow:visible}
+.flow-arrow-line::after{content:'▶';position:absolute;right:-8px;top:50%;transform:translateY(-50%);font-size:.55rem;color:var(--border2)}
+.flow-arrow-line.animated{background:linear-gradient(90deg,var(--border2),var(--green));animation:flow-pulse 1.8s ease-in-out infinite}
+.flow-arrow-line.animated::after{color:var(--green)}
+@keyframes flow-pulse{0%,100%{opacity:.5}50%{opacity:1}}
+
+.flow-arrow-v{display:flex;flex-direction:column;align-items:center;padding:4px 0}
+.flow-arrow-vline{width:2px;height:28px;background:var(--border2);position:relative}
+.flow-arrow-vline::after{content:'▼';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);font-size:.55rem;color:var(--border2)}
+.flow-arrow-vline.animated{background:linear-gradient(180deg,var(--green),var(--border2));animation:flow-pulse-v 1.8s ease-in-out infinite}
+.flow-arrow-vline.animated::after{color:var(--green)}
+@keyframes flow-pulse-v{0%,100%{opacity:.4}50%{opacity:1}}
+
+/* Fork */
+.flow-fork{display:flex;flex-direction:column;align-items:center;gap:0}
+.flow-fork-bar{display:flex;align-items:center;width:280px;justify-content:center;position:relative}
+.flow-fork-bar::before{content:'';position:absolute;top:50%;left:30px;right:30px;height:2px;background:var(--border2)}
+
+.flow-fork-branches{display:flex;justify-content:center;gap:60px;width:280px}
+.flow-fork-branch{display:flex;flex-direction:column;align-items:center;gap:0}
+
+.rule-box{margin-top:40px;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.25);border-radius:var(--r);padding:24px 28px;display:flex;gap:16px;align-items:flex-start}
+.rule-icon{font-size:1.4rem;flex-shrink:0}
+.rule-box h4{font-family:var(--font-head);font-size:.95rem;color:var(--green-l);margin-bottom:6px}
+.rule-box p{font-size:.88rem}
+
+/* ═══ ROADMAP ════════════════════════════════════════════════ */
+#roadmap{background:var(--bg2)}
+.roadmap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.roadmap-grid::before{content:'';position:absolute;top:48px;left:calc(12.5%);right:calc(12.5%);height:2px;background:linear-gradient(90deg,var(--gray-d),var(--green),var(--orange),var(--red));z-index:0}
+.phase-wrap{display:flex;flex-direction:column;align-items:center;gap:0;position:relative;z-index:1}
+.phase-dot{width:16px;height:16px;border-radius:50%;border:3px solid var(--bg2);position:relative;z-index:2;margin-bottom:20px;flex-shrink:0}
+.phase-card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:20px;width:calc(100% - 16px);overflow:hidden;position:relative;transition:transform .25s,border-color .25s}
+.phase-card:hover{transform:translateY(-4px);border-color:var(--border2)}
+.phase-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.p1 .phase-dot{background:var(--gray-d)}
+.p1 .phase-card::before{background:var(--gray-d)}
+.p2 .phase-dot{background:var(--yellow)}
+.p2 .phase-card::before{background:var(--yellow)}
+.p3 .phase-dot{background:var(--orange)}
+.p3 .phase-card::before{background:var(--orange)}
+.p4 .phase-dot{background:var(--red)}
+.p4 .phase-card::before{background:var(--red)}
+.phase-num{font-family:var(--font-head);font-weight:800;font-size:2rem;color:var(--white);line-height:1;margin-bottom:4px}
+.phase-date{font-family:var(--font-mono);font-size:.62rem;color:var(--green);letter-spacing:.06em;margin-bottom:14px}
+.phase-items{display:flex;flex-direction:column;gap:6px}
+.phase-items li{list-style:none;font-size:.82rem;color:var(--gray-l);padding-left:14px;position:relative}
+.phase-items li::before{content:'◆';position:absolute;left:0;font-size:.45rem;color:var(--green);top:5px}
+@media(max-width:700px){
+  .roadmap-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .roadmap-grid::before{display:none}
+}
+@media(max-width:440px){.roadmap-grid{grid-template-columns:1fr}}
+
+.roadmap-summary{margin-top:40px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.roadmap-summary-item h4{font-family:var(--font-head);font-size:1rem;color:var(--white);margin-bottom:6px}
+.roadmap-summary-item p{font-size:.87rem}
+@media(max-width:540px){.roadmap-summary{grid-template-columns:1fr}}
+
+/* ═══ PRICING ════════════════════════════════════════════════ */
+.pricing-hero{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px}
+.price-card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:32px;position:relative;overflow:hidden;transition:border-color .25s}
+.price-card:hover{border-color:var(--green)}
+.price-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--border2)}
+.price-card.highlight{border-color:rgba(34,197,94,.4);background:rgba(34,197,94,.04)}
+.price-card.highlight::after{background:var(--green)}
+.price-label{font-family:var(--font-mono);font-size:.65rem;color:var(--gray);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.price-val{font-family:var(--font-head);font-weight:800;font-size:3rem;color:var(--white);line-height:1;letter-spacing:-.02em}
+.price-val span{color:var(--green)}
+.price-period{font-family:var(--font-mono);font-size:.72rem;color:var(--gray);margin-top:4px}
+.price-break{margin-top:20px;display:flex;flex-direction:column;gap:8px}
+.price-line{display:flex;justify-content:space-between;align-items:center;font-size:.84rem;padding:8px 0;border-bottom:1px solid var(--border)}
+.price-line:last-child{border-bottom:none}
+.price-line span:first-child{color:var(--gray-l)}
+.price-line span:last-child{font-family:var(--font-mono);font-size:.8rem;color:var(--green-l)}
+@media(max-width:560px){.pricing-hero{grid-template-columns:1fr}}
+
+.pricing-table-wrap{overflow-x:auto}
+.pricing-table{width:100%;border-collapse:collapse;border-radius:var(--r);overflow:hidden}
+.pricing-table th{background:#0c160e;color:var(--green);font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;padding:14px 16px;text-align:left;border-bottom:1px solid var(--border2)}
+.pricing-table th:not(:first-child){text-align:center}
+.pricing-table td{padding:13px 16px;font-size:.88rem;border-bottom:1px solid var(--border);transition:background .2s}
+.pricing-table td:not(:first-child){text-align:center;font-family:var(--font-mono);font-size:.82rem;color:var(--green-l)}
+.pricing-table tr:nth-child(odd) td{background:var(--surface)}
+.pricing-table tr:nth-child(even) td{background:var(--bg2)}
+.pricing-table tr:hover td{background:var(--surface2)}
+.pricing-table .total td{background:var(--green)!important;color:#050e07!important;font-weight:700;font-size:.95rem}
+.pricing-table .total td:not(:first-child){font-family:var(--font-head);font-weight:800;font-size:1rem}
+.pricing-note{font-family:var(--font-mono);font-size:.7rem;color:var(--gray);margin-top:10px;font-style:italic}
+
+.stack-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;align-items:center}
+.stack-label{font-family:var(--font-mono);font-size:.62rem;color:var(--gray);text-transform:uppercase;letter-spacing:.08em;margin-right:4px}
+.stack-chip{display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--border2);border-radius:6px;padding:5px 10px 5px 7px;font-size:.78rem;color:var(--gray-l);transition:border-color .2s}
+.stack-chip:hover{border-color:var(--green);color:var(--white)}
+.stack-chip img{width:14px;height:14px;object-fit:contain}
+
+.value-box{margin-top:28px;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.2);border-radius:var(--r);padding:28px}
+.value-box p{font-size:.93rem;line-height:1.75}
+.value-box p+p{margin-top:10px;font-size:.82rem;color:var(--gray);font-style:italic}
+
+/* ═══ CONTACT ════════════════════════════════════════════════ */
+#contato{background:var(--bg2)}
+.cred-strip{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:28px;margin-bottom:36px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.cred-strip h4{font-family:var(--font-head);font-size:1rem;color:var(--white);width:100%;margin-bottom:4px}
+.cred-badge{display:inline-flex;align-items:center;gap:6px;background:var(--bg2);border:1px solid var(--border2);border-radius:6px;padding:6px 12px;font-size:.78rem;color:var(--gray-l)}
+.cred-badge::before{content:'✦';color:var(--green);font-size:.6rem}
+
+.contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:48px}
+.contact-card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r-sm);padding:20px;transition:border-color .2s}
+.contact-card:hover{border-color:var(--green)}
+.contact-card label{font-family:var(--font-mono);font-size:.62rem;color:var(--green);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:10px}
+.contact-card a,.contact-card span{display:block;font-size:.88rem;color:var(--white);transition:color .2s}
+.contact-card a:hover{color:var(--green-l)}
+@media(max-width:700px){.contact-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.contact-grid{grid-template-columns:1fr}}
+
+.cta-final{background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.25);border-radius:var(--r);padding:48px;text-align:center;position:relative;overflow:hidden}
+.cta-final::before{content:'';position:absolute;top:-50%;left:50%;transform:translateX(-50%);width:400px;height:400px;background:radial-gradient(circle,rgba(34,197,94,.12),transparent 70%);pointer-events:none}
+.cta-final h2{margin:16px 0 12px;font-size:clamp(1.8rem,3.5vw,2.8rem)}
+.cta-final p{font-size:.95rem;max-width:460px;margin:0 auto 32px}
+.cta-validity{font-family:var(--font-mono);font-size:.68rem;color:var(--gray);margin-top:16px}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:24px;text-align:center}
+footer p{font-family:var(--font-mono);font-size:.68rem;color:var(--gray-d)}
+</style>
 </head>
 <body>
 
-<!-- ══ HERO ═══════════════════════════════════════════════════ -->
+<!-- ══ NAV ══════════════════════════════════════════════════ -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-icon">A</div>
+    <div>
+      <div class="nav-name">AUTOMATRIX</div>
+      <div class="nav-sub">Inteligência Artificial</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#plano">Plano</a>
+    <a href="#funcionalidades">Escopo</a>
+    <a href="#arquitetura">Arquitetura</a>
+    <a href="#financeiro">Proposta</a>
+    <a href="#contato">Contato</a>
+  </div>
+  <div class="nav-badge">Junho 2026</div>
+</nav>
+
+<!-- ══ HERO ══════════════════════════════════════════════════ -->
 <section id="hero">
-  <nav class="hero-bar">
-    <a href="#" class="logo">
-      <div class="logo-icon">A</div>
-      <div>
-        <span class="logo-text">AUTOMATRIX</span>
-        <span class="logo-sub">Inteligência Artificial</span>
+  <div class="hero-glow"></div>
+  <div class="hero-glow hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-pre reveal">
+      <span class="eyebrow">Proposta Comercial</span>
+      <span class="hero-client">GVG — Grupo Vládia Gonçalves</span>
+    </div>
+    <div class="hero-title reveal reveal-delay-1">
+      <div class="hero-t1">SDR Inteligente</div>
+      <div class="hero-t2">
+        <span class="hero-t2-text">via&nbsp;</span>
+        <span class="wa-badge">
+          <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp" width="22" height="22"/>
+          <span>WhatsApp</span>
+        </span>
       </div>
-    </a>
-    <div class="nav-year">2026</div>
-  </nav>
-
-  <div class="hero-content">
-    <div class="hero-inner">
-      <div class="hero-label">
-        <span class="badge">Proposta Comercial · Junho 2026</span>
+    </div>
+    <p class="hero-sub reveal reveal-delay-2">
+      Um agente de vendas disponível <strong>24/7</strong>, com o tom de voz da Vládia Gonçalves, integrado ao CRM, com rastreamento por campanha e <strong>zero risco de banimento</strong>.
+    </p>
+    <div class="hero-stats reveal reveal-delay-3">
+      <div class="stat">
+        <div class="stat-val"><span class="num" data-target="24">0</span>h / <span class="num" data-target="7">0</span>d</div>
+        <div class="stat-lbl">Disponibilidade</div>
       </div>
-      <h1 class="hero-title">
-        SDR Inteligente<br>
-        <span class="accent">via WhatsApp</span>
-      </h1>
-      <p class="hero-subtitle">
-        Um agente de vendas disponível 24/7, integrado ao CRM, com rastreamento por campanha e zero risco de banimento — desenvolvido pela Automatrix para a GVG.
-      </p>
-
-      <div class="hero-meta">
-        <div class="hero-meta-item">
-          <label>Apresentado para</label>
-          <span>GVG — Grupo Vládia Gonçalves</span>
-        </div>
-        <div class="hero-meta-item">
-          <label>Setup</label>
-          <span>R$ 8.000</span>
-        </div>
-        <div class="hero-meta-item">
-          <label>Manutenção</label>
-          <span>R$ 3.000/mês</span>
-        </div>
-        <div class="hero-meta-item">
-          <label>Prazo</label>
-          <span>30 dias</span>
-        </div>
+      <div class="stat">
+        <div class="stat-val"><span class="num" data-target="30">0</span> dias</div>
+        <div class="stat-lbl">Prazo de entrega</div>
       </div>
-
-      <div class="hero-btns">
-        <a href="#plano" class="btn btn-green">Ver proposta completa ↓</a>
-        <a href="#contato" class="btn btn-outline">Entrar em contato</a>
+      <div class="stat">
+        <div class="stat-val">R$<span class="num" data-target="8">0</span>k</div>
+        <div class="stat-lbl">Setup único</div>
       </div>
-      <div class="hero-divider"></div>
+      <div class="stat">
+        <div class="stat-val"><span class="num" data-target="7">0</span></div>
+        <div class="stat-lbl">Integrações</div>
+      </div>
+    </div>
+    <div class="hero-ctas reveal reveal-delay-4">
+      <a href="#plano" class="btn btn-primary">Ver proposta completa ↓</a>
+      <a href="#contato" class="btn btn-ghost">Entrar em contato</a>
     </div>
   </div>
 </section>
 
 <!-- ══ VSL ════════════════════════════════════════════════════ -->
 <section id="vsl">
-  <div class="container">
-    <div class="section-header" style="text-align:center; max-width:560px; margin:0 auto 40px;">
-      <span class="badge">Apresentação em Vídeo</span>
-      <h2 style="margin-top:12px;">Assista a apresentação completa</h2>
+  <div class="vsl-wrap">
+    <div class="vsl-header reveal">
+      <span class="eyebrow">Apresentação em Vídeo</span>
+      <h2 style="margin-top:14px">Assista a apresentação<br>narrada completa</h2>
     </div>
     <!-- VSL_PLACEHOLDER_START -->
-    <div class="vsl-placeholder" id="vsl-container">
-      <div class="vsl-icon">🎬</div>
-      <h3>Apresentação animada em produção</h3>
-      <p>A VSL narrada da proposta estará disponível em breve nesta página.</p>
+    <div id="vsl-container" class="reveal reveal-delay-1" style="border-radius:12px;overflow:hidden;background:#000;box-shadow:0 0 60px rgba(34,197,94,.2)">
+      <video controls preload="metadata" style="width:100%;display:block;border-radius:12px" src="apresentacao.mp4">
+        Seu navegador não suporta a tag de vídeo.
+      </video>
     </div>
     <!-- VSL_PLACEHOLDER_END -->
   </div>
@@ -250,35 +374,32 @@
 
 <!-- ══ PLANO DE AÇÃO ══════════════════════════════════════════ -->
 <section id="plano">
-  <div class="container">
-    <div class="section-header">
-      <span class="badge">Plano de Ação</span>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Plano de Ação</span>
       <h2>Três pilares de resultado<br>em 30 dias</h2>
       <p>Uma arquitetura simples, auditável e sem risco de banimento — do lead ao Closer humano.</p>
     </div>
-
     <div class="pillars">
-      <div class="pillar">
+      <div class="pillar-card reveal">
         <div class="pillar-num">#1</div>
         <div>
           <h3>Agente SDR IA no WhatsApp</h3>
-          <p>Disponível 24h por dia, 7 dias por semana, com o tom de voz e os valores da Vládia Gonçalves. Qualifica leads automaticamente — coleta nome, telefone e nome da marca. <strong style="color:var(--white)">NUNCA envia link de pagamento:</strong> toda transação é conduzida exclusivamente pelo Closer humano após diagnóstico consultivo.</p>
+          <p>Disponível 24/7 com o tom de voz e os valores da Vládia Gonçalves. Qualifica leads automaticamente — coleta nome, telefone e nome da marca. <strong>NUNCA envia link de pagamento:</strong> toda transação é conduzida exclusivamente pelo Closer humano após diagnóstico consultivo.</p>
         </div>
       </div>
-
-      <div class="pillar">
+      <div class="pillar-card reveal reveal-delay-1">
         <div class="pillar-num">#2</div>
         <div>
           <h3>Integrações CRM + Agendamento Automático</h3>
-          <p>Pipeline completo integrado: WhatsApp Cloud API → N8N → RD Station CRM + Google Calendar. O Closer recebe o histórico completo de cada conversa antes de qualquer ligação. Toda pergunta sobre preço ou prazo aciona automaticamente um agendamento de 15 minutos.</p>
+          <p>Pipeline completo: WhatsApp Cloud API → N8N → RD Station CRM + Google Calendar. O Closer recebe o histórico completo de cada conversa antes de qualquer ligação. Toda pergunta sobre preço ou prazo aciona automaticamente um agendamento de <strong>15 minutos</strong>.</p>
         </div>
       </div>
-
-      <div class="pillar">
+      <div class="pillar-card reveal reveal-delay-2">
         <div class="pillar-num">#3</div>
         <div>
           <h3>Dashboard e Analytics em Tempo Real</h3>
-          <p>Painel de conversão no Looker Studio com rastreamento de UTM por campanha do Meta Ads. Volume de leads, taxa de qualificação, conversões por anúncio e funil completo — zero métricas invisíveis, toda jornada documentada.</p>
+          <p>Painel de conversão no Looker Studio com rastreamento de UTM por campanha do Meta Ads. Volume de leads, taxa de qualificação, conversões por anúncio e funil completo — <strong>zero métricas invisíveis</strong>, toda jornada documentada.</p>
         </div>
       </div>
     </div>
@@ -287,48 +408,72 @@
 
 <!-- ══ FUNCIONALIDADES ════════════════════════════════════════ -->
 <section id="funcionalidades">
-  <div class="container">
-    <div class="section-header">
-      <span class="badge">Escopo Base</span>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Escopo Base</span>
       <h2>7 funcionalidades incluídas</h2>
       <p>Tudo que a GVG precisa para sair do zero ao SDR IA em produção.</p>
     </div>
-
-    <div class="features">
-      <div class="feature">
-        <div class="feature-label">F1</div>
+    <div class="features-grid">
+      <div class="feat reveal">
+        <div class="feat-top">
+          <span class="feat-label">F1</span>
+          <div class="feat-icon"><img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp"/></div>
+        </div>
         <h3>WhatsApp Cloud API Oficial</h3>
-        <p>Número verificado Meta Business — zero risco de banimento como a API Zapi anterior. Webhooks com parâmetros UTM por campanha.</p>
+        <p>Número verificado Meta Business — zero risco de banimento. Webhooks com parâmetros UTM para rastreamento por campanha.</p>
       </div>
-      <div class="feature">
-        <div class="feature-label">F2</div>
+      <div class="feat reveal reveal-delay-1">
+        <div class="feat-top">
+          <span class="feat-label">F2</span>
+          <div class="feat-icon"><img src="https://cdn.simpleicons.org/openai/ffffff" alt="OpenAI"/></div>
+        </div>
         <h3>Agente SDR com IA 24/7</h3>
         <p>OpenClaw + GPT-4.1 treinado com o tom de voz da Vládia. Responde instantaneamente, qualifica leads sem parar.</p>
       </div>
-      <div class="feature">
-        <div class="feature-label">F3</div>
+      <div class="feat reveal reveal-delay-2">
+        <div class="feat-top">
+          <span class="feat-label">F3</span>
+          <div class="feat-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+        </div>
         <h3>Scripts + Regra de Ouro</h3>
-        <p>Coleta apenas: nome, telefone, nome da marca. Regra inviolável: <strong style="color:var(--white)">SDR NUNCA envia link de pagamento.</strong></p>
+        <p>Coleta apenas: nome, telefone, nome da marca. Regra inviolável: <strong>SDR NUNCA envia link de pagamento.</strong></p>
       </div>
-      <div class="feature">
-        <div class="feature-label">F4</div>
+      <div class="feat reveal">
+        <div class="feat-top">
+          <span class="feat-label">F4</span>
+          <div class="feat-icon"><img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="N8N"/></div>
+        </div>
         <h3>N8N → RD Station CRM</h3>
         <p>Cada conversa registrada em tempo real. Closer entra na reunião com histórico completo — zero briefing, 100% contexto.</p>
       </div>
-      <div class="feature">
-        <div class="feature-label">F5</div>
+      <div class="feat reveal reveal-delay-1">
+        <div class="feat-top">
+          <span class="feat-label">F5</span>
+          <div class="feat-icon"><img src="https://cdn.simpleicons.org/googlecalendar/4285F4" alt="Google Calendar"/></div>
+        </div>
         <h3>Agendamento via Google Calendar</h3>
-        <p>Toda pergunta sobre preço/prazo/viabilidade → reunião de 15 minutos criada automaticamente no Google Calendar.</p>
+        <p>Toda pergunta sobre preço/prazo → reunião de 15 minutos criada automaticamente. Sem atrito para o lead.</p>
       </div>
-      <div class="feature">
-        <div class="feature-label">F6</div>
+      <div class="feat reveal reveal-delay-2">
+        <div class="feat-top">
+          <span class="feat-label">F6</span>
+          <div class="feat-icon"><img src="https://cdn.simpleicons.org/looker/4285F4" alt="Looker Studio"/></div>
+        </div>
         <h3>Dashboard (Looker Studio)</h3>
         <p>UTM por campanha, taxa de qualificação, funil lead→qualificado→reunião→Closer. Dados que faltavam completamente.</p>
       </div>
-      <div class="feature">
-        <div class="feature-label">F7</div>
+      <div class="feat reveal">
+        <div class="feat-top">
+          <span class="feat-label">F7</span>
+          <div class="feat-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+        </div>
         <h3>Monitoramento + SLA 30 Dias</h3>
-        <p>Uptime 99,5%, resposta a incidentes críticos em até 2 horas. 30 dias de suporte intensivo incluídos sem custo adicional.</p>
+        <p>Uptime 99,5%, resposta a incidentes críticos em até 2 horas. 30 dias de suporte intensivo incluídos.</p>
       </div>
     </div>
   </div>
@@ -336,110 +481,183 @@
 
 <!-- ══ ARQUITETURA ════════════════════════════════════════════ -->
 <section id="arquitetura">
-  <div class="container">
-    <div class="section-header">
-      <span class="badge">Arquitetura</span>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Arquitetura do Sistema</span>
       <h2>Como funciona</h2>
       <p>Do anúncio no Meta até o Closer humano — nenhum lead perdido.</p>
     </div>
 
-    <div class="flow">
-      <div class="flow-step">
-        <div class="flow-left"><div class="flow-dot">1</div><div class="flow-line"></div></div>
-        <div class="flow-content">
-          <h3>Meta Ads → Landing Page</h3>
-          <p>Lead clica no anúncio com UTM de campanha, inicia conversa no WhatsApp.</p>
+    <div class="flow-diagram reveal">
+      <!-- Row 1: Meta → WA → N8N -->
+      <div class="flow-row" style="gap:0;justify-content:flex-start;width:100%;overflow-x:auto;padding-bottom:8px">
+        <!-- Meta Ads -->
+        <div class="flow-node">
+          <div class="flow-box" style="border-color:rgba(24,119,242,.4)">
+            <img src="https://cdn.simpleicons.org/meta/1877F2" alt="Meta" width="28" height="28"/>
+            <div class="flow-box-name">Meta Ads</div>
+            <div class="flow-box-sub">UTM tracking</div>
+          </div>
+        </div>
+        <div class="flow-arrow"><div class="flow-arrow-line animated" style="width:48px"></div></div>
+        <!-- WhatsApp -->
+        <div class="flow-node">
+          <div class="flow-box" style="border-color:rgba(37,211,102,.4);box-shadow:0 0 16px rgba(37,211,102,.12)">
+            <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp" width="28" height="28"/>
+            <div class="flow-box-name">WhatsApp<br>Cloud API</div>
+            <div class="flow-box-sub">Meta verified</div>
+          </div>
+        </div>
+        <div class="flow-arrow"><div class="flow-arrow-line animated" style="width:48px"></div></div>
+        <!-- N8N -->
+        <div class="flow-node">
+          <div class="flow-box" style="border-color:rgba(234,75,113,.3)">
+            <img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="N8N" width="28" height="28"/>
+            <div class="flow-box-name">N8N<br>Webhook</div>
+            <div class="flow-box-sub">Orquestração</div>
+          </div>
+        </div>
+        <div class="flow-arrow"><div class="flow-arrow-line animated" style="width:48px"></div></div>
+        <!-- SDR IA -->
+        <div class="flow-node">
+          <div class="flow-box" style="border-color:rgba(34,197,94,.5);box-shadow:0 0 20px rgba(34,197,94,.15);background:rgba(34,197,94,.06)">
+            <img src="https://cdn.simpleicons.org/openai/4ade80" alt="OpenAI/GPT" width="28" height="28"/>
+            <div class="flow-box-name" style="color:var(--green-l)">Agente SDR IA</div>
+            <div class="flow-box-sub">OpenClaw + GPT-4.1</div>
+          </div>
         </div>
       </div>
-      <div class="flow-step">
-        <div class="flow-left"><div class="flow-dot">2</div><div class="flow-line"></div></div>
-        <div class="flow-content">
-          <h3>WhatsApp Cloud API Oficial</h3>
-          <p>Mensagem recebida via API Meta Business verificada. Rastreamento de UTM ativo por campanha.</p>
-        </div>
+
+      <!-- Vertical down from SDR -->
+      <div style="display:flex;padding-left:calc(3 * (110px + 48px) + 55px);margin:-4px 0">
+        <div class="flow-arrow-v"><div class="flow-arrow-vline animated"></div></div>
       </div>
-      <div class="flow-step">
-        <div class="flow-left"><div class="flow-dot">3</div><div class="flow-line"></div></div>
-        <div class="flow-content">
-          <h3>N8N Webhook</h3>
-          <p>Orquestração do fluxo — recebe o evento e aciona o agente SDR IA.</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-left"><div class="flow-dot">4</div><div class="flow-line"></div></div>
-        <div class="flow-content">
-          <h3>Agente SDR IA — OpenClaw + GPT-4.1</h3>
-          <p>Conversa com o lead 24/7. Coleta nome, telefone e nome da marca. Jamais envia link de pagamento.</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-left"><div class="flow-dot">5</div><div class="flow-line"></div></div>
-        <div class="flow-content">
-          <h3>Google Calendar + RD Station</h3>
-          <p>Agendamento automático de 15 minutos + registro do lead qualificado com histórico no CRM.</p>
-        </div>
-      </div>
-      <div class="flow-step flow-last">
-        <div class="flow-left"><div class="flow-dot" style="background:var(--white);color:#111">✓</div><div class="flow-line"></div></div>
-        <div class="flow-content">
-          <h3>Closer Humano</h3>
-          <p>Diagnóstico consultivo SPIN Selling com contexto completo → proposta → fechamento.</p>
+
+      <!-- Row 2: Calendar and RD Station branches -->
+      <div class="flow-row" style="padding-left:calc(3 * (110px + 48px));gap:0;justify-content:flex-start">
+        <!-- Fork container -->
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <!-- Horizontal branch bar -->
+          <div style="display:flex;align-items:center;position:relative;width:288px;margin-bottom:4px">
+            <div style="position:absolute;top:50%;left:24px;right:24px;height:2px;background:var(--border2)"></div>
+            <div style="position:absolute;top:50%;left:142px;width:2px;height:20px;background:var(--border2);transform:translateY(-50%)"></div>
+          </div>
+          <!-- Branches -->
+          <div style="display:flex;gap:48px">
+            <!-- Google Calendar -->
+            <div class="flow-node">
+              <div class="flow-arrow-v" style="margin-bottom:-4px"><div class="flow-arrow-vline animated"></div></div>
+              <div class="flow-box" style="border-color:rgba(66,133,244,.4)">
+                <img src="https://cdn.simpleicons.org/googlecalendar/4285F4" alt="Google Calendar" width="28" height="28"/>
+                <div class="flow-box-name">Google<br>Calendar</div>
+                <div class="flow-box-sub">Agenda 15min</div>
+              </div>
+            </div>
+            <!-- RD Station -->
+            <div class="flow-node">
+              <div class="flow-arrow-v" style="margin-bottom:-4px"><div class="flow-arrow-vline animated"></div></div>
+              <div class="flow-box" style="border-color:rgba(255,127,0,.3)">
+                <div class="flow-box-icon" style="background:rgba(255,127,0,.15);color:#ff7f00;font-size:.7rem;border-radius:6px;padding:4px">RD</div>
+                <div class="flow-box-name">RD Station<br>CRM</div>
+                <div class="flow-box-sub">Histórico Closer</div>
+              </div>
+            </div>
+          </div>
+          <!-- Down to Closer -->
+          <div style="display:flex;align-items:center;position:relative;width:288px;margin-top:4px">
+            <div style="position:absolute;top:50%;left:24px;right:24px;height:2px;background:var(--border2)"></div>
+          </div>
+          <div class="flow-arrow-v" style="margin:-4px 0"><div class="flow-arrow-vline animated"></div></div>
+          <!-- Closer Humano -->
+          <div class="flow-node">
+            <div class="flow-box" style="border-color:rgba(240,240,240,.25);background:rgba(255,255,255,.04);width:140px">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f0faf2" stroke-width="1.8">
+                <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+              </svg>
+              <div class="flow-box-name" style="color:var(--gray-l)">Closer<br>Humano</div>
+              <div class="flow-box-sub">SPIN Selling</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="rule-card">
-      <strong>🔑 Regra de Ouro do SDR</strong>
-      <p>O SDR é um qualificador — nunca um vendedor. O agente coleta apenas nome, telefone e nome da marca. Todo o processo de fechamento e toda transação financeira é exclusividade do Closer humano.</p>
+    <div class="rule-box reveal" style="margin-top:40px">
+      <div class="rule-icon">🔑</div>
+      <div>
+        <h4>Regra de Ouro do SDR</h4>
+        <p>O SDR é um qualificador — nunca um vendedor. O agente coleta apenas nome, telefone e nome da marca. Toda transação financeira e todo processo de fechamento é <strong>exclusividade do Closer humano</strong> após diagnóstico consultivo.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ══ ROADMAP ════════════════════════════════════════════════ -->
 <section id="roadmap">
-  <div class="container">
-    <div class="section-header">
-      <span class="badge">Roadmap</span>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Roadmap</span>
       <h2>Implementação em 30 dias</h2>
       <p>4 fases com entregas claras e data de GO LIVE definida.</p>
     </div>
-
-    <div class="roadmap">
-      <div class="phase phase-1">
-        <div class="phase-num">01</div>
-        <div class="phase-date">Semana 1 · 16–20 Jun</div>
-        <ul>
-          <li>Setup WhatsApp Cloud API</li>
-          <li>Verificação Meta Business</li>
-          <li>Webhooks UTM por campanha</li>
-        </ul>
+    <div class="roadmap-grid">
+      <div class="phase-wrap p1 reveal">
+        <div class="phase-dot"></div>
+        <div class="phase-card">
+          <div class="phase-num">01</div>
+          <div class="phase-date">16–20 Jun · Semana 1</div>
+          <ul class="phase-items">
+            <li>Setup WhatsApp Cloud API</li>
+            <li>Verificação Meta Business</li>
+            <li>Webhooks UTM por campanha</li>
+          </ul>
+        </div>
       </div>
-      <div class="phase phase-2">
-        <div class="phase-num">02</div>
-        <div class="phase-date">Semana 2 · 23–27 Jun</div>
-        <ul>
-          <li>Agente SDR IA com tom da Vládia</li>
-          <li>Scripts de qualificação</li>
-          <li>Testes internos</li>
-        </ul>
+      <div class="phase-wrap p2 reveal reveal-delay-1">
+        <div class="phase-dot"></div>
+        <div class="phase-card">
+          <div class="phase-num">02</div>
+          <div class="phase-date">23–27 Jun · Semana 2</div>
+          <ul class="phase-items">
+            <li>Agente SDR IA com tom da Vládia</li>
+            <li>Scripts de qualificação</li>
+            <li>Testes internos</li>
+          </ul>
+        </div>
       </div>
-      <div class="phase phase-3">
-        <div class="phase-num">03</div>
-        <div class="phase-date">Semana 3 · 30 Jun–4 Jul</div>
-        <ul>
-          <li>N8N → RD Station + Calendar</li>
-          <li>Histórico completo ao Closer</li>
-          <li>Testes com leads reais</li>
-        </ul>
+      <div class="phase-wrap p3 reveal reveal-delay-2">
+        <div class="phase-dot"></div>
+        <div class="phase-card">
+          <div class="phase-num">03</div>
+          <div class="phase-date">30 Jun–4 Jul · Semana 3</div>
+          <ul class="phase-items">
+            <li>N8N → RD Station + Calendar</li>
+            <li>Histórico completo ao Closer</li>
+            <li>Testes com leads reais</li>
+          </ul>
+        </div>
       </div>
-      <div class="phase phase-4">
-        <div class="phase-num">04</div>
-        <div class="phase-date">Semana 4 · 7–11 Jul</div>
-        <ul>
-          <li>Dashboard Looker Studio</li>
-          <li><strong style="color:var(--red)">GO LIVE oficial</strong></li>
-          <li>Monitoramento 24/7 — SLA 2h</li>
-        </ul>
+      <div class="phase-wrap p4 reveal reveal-delay-3">
+        <div class="phase-dot"></div>
+        <div class="phase-card">
+          <div class="phase-num">04</div>
+          <div class="phase-date">7–11 Jul · Semana 4</div>
+          <ul class="phase-items">
+            <li>Dashboard Looker Studio</li>
+            <li><strong style="color:var(--red)">GO LIVE oficial</strong></li>
+            <li>Monitoramento 24/7 · SLA 2h</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="roadmap-summary reveal">
+      <div class="roadmap-summary-item">
+        <h4>Após as 4 semanas</h4>
+        <p>A GVG estará com o SDR IA ativo, CRM integrado, agendamento automático e dashboard de conversão em produção — prontos para escalar.</p>
+      </div>
+      <div class="roadmap-summary-item">
+        <h4>Suporte intensivo incluído</h4>
+        <p><strong>30 dias de monitoramento 24/7</strong> sem custo adicional. Uptime 99,5% garantido, resposta a incidentes críticos em até 2 horas.</p>
       </div>
     </div>
   </div>
@@ -447,68 +665,86 @@
 
 <!-- ══ PROPOSTA FINANCEIRA ════════════════════════════════════ -->
 <section id="financeiro">
-  <div class="container">
-    <div class="section-header">
-      <span class="badge">Proposta Financeira</span>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Proposta Financeira</span>
       <h2>Investimento</h2>
       <p>Setup único + manutenção mensal. Sem taxas ocultas.</p>
     </div>
 
-    <table class="pricing-table">
-      <thead>
-        <tr>
-          <th>Entrega</th>
-          <th>Valor Único</th>
-          <th>Manutenção/mês</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Agente SDR IA (OpenClaw + GPT-4.1)</td><td>R$ 2.500</td><td>R$ 1.000</td></tr>
-        <tr><td>WhatsApp Cloud API + N8N</td><td>R$ 2.000</td><td>R$ 800</td></tr>
-        <tr><td>CRM (RD Station) + Google Calendar</td><td>R$ 2.000</td><td>R$ 700</td></tr>
-        <tr><td>Dashboard Analytics (Looker Studio)</td><td>R$ 1.500</td><td>R$ 500</td></tr>
-        <tr class="total"><td>TOTAL</td><td>R$ 8.000</td><td>R$ 3.000/mês</td></tr>
-      </tbody>
-    </table>
-    <p class="pricing-note">* A manutenção mensal inicia após entrega final e aprovação da plataforma.</p>
-
-    <div class="stack-tags">
-      <span class="stack-tag">WhatsApp Cloud API</span>
-      <span class="stack-tag">N8N</span>
-      <span class="stack-tag">OpenClaw</span>
-      <span class="stack-tag">GPT-4.1</span>
-      <span class="stack-tag">RD Station</span>
-      <span class="stack-tag">Google Calendar</span>
-      <span class="stack-tag">Looker Studio</span>
-      <span class="stack-tag">Meta Ads</span>
+    <div class="pricing-hero reveal">
+      <div class="price-card highlight">
+        <div class="price-label">Setup Único</div>
+        <div class="price-val">R$<span>8.000</span></div>
+        <div class="price-period">pagamento único · sem recorrência</div>
+        <div class="price-break">
+          <div class="price-line"><span>Agente SDR IA</span><span>R$ 2.500</span></div>
+          <div class="price-line"><span>WhatsApp API + N8N</span><span>R$ 2.000</span></div>
+          <div class="price-line"><span>CRM + Calendar</span><span>R$ 2.000</span></div>
+          <div class="price-line"><span>Dashboard Analytics</span><span>R$ 1.500</span></div>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-label">Manutenção Mensal</div>
+        <div class="price-val">R$<span>3.000</span></div>
+        <div class="price-period">inicia após aprovação da plataforma</div>
+        <div class="price-break">
+          <div class="price-line"><span>Agente SDR IA</span><span>R$ 1.000</span></div>
+          <div class="price-line"><span>WhatsApp API + N8N</span><span>R$ 800</span></div>
+          <div class="price-line"><span>CRM + Calendar</span><span>R$ 700</span></div>
+          <div class="price-line"><span>Dashboard</span><span>R$ 500</span></div>
+        </div>
+      </div>
     </div>
 
-    <div class="value-callout">
+    <div class="pricing-table-wrap reveal">
+      <table class="pricing-table">
+        <thead><tr><th>Entrega</th><th>Valor Único</th><th>Manutenção/mês</th></tr></thead>
+        <tbody>
+          <tr><td>Agente SDR IA (OpenClaw + GPT-4.1)</td><td>R$ 2.500</td><td>R$ 1.000</td></tr>
+          <tr><td>WhatsApp Cloud API + N8N</td><td>R$ 2.000</td><td>R$ 800</td></tr>
+          <tr><td>CRM (RD Station) + Google Calendar</td><td>R$ 2.000</td><td>R$ 700</td></tr>
+          <tr><td>Dashboard Analytics (Looker Studio)</td><td>R$ 1.500</td><td>R$ 500</td></tr>
+          <tr class="total"><td>TOTAL</td><td>R$ 8.000</td><td>R$ 3.000/mês</td></tr>
+        </tbody>
+      </table>
+      <p class="pricing-note">* A manutenção mensal inicia após entrega final e aprovação da plataforma.</p>
+    </div>
+
+    <div class="stack-row reveal">
+      <span class="stack-label">Stack:</span>
+      <span class="stack-chip"><img src="https://cdn.simpleicons.org/whatsapp/25D366" alt=""/>WhatsApp API</span>
+      <span class="stack-chip"><img src="https://cdn.simpleicons.org/n8n/EA4B71" alt=""/>N8N</span>
+      <span class="stack-chip"><img src="https://cdn.simpleicons.org/openai/9ca3af" alt=""/>GPT-4.1</span>
+      <span class="stack-chip"><img src="https://cdn.simpleicons.org/meta/9ca3af" alt=""/>Meta Ads</span>
+      <span class="stack-chip"><img src="https://cdn.simpleicons.org/googlecalendar/4285F4" alt=""/>Google Calendar</span>
+      <span class="stack-chip"><img src="https://cdn.simpleicons.org/looker/4285F4" alt=""/>Looker Studio</span>
+    </div>
+
+    <div class="value-box reveal">
       <p>Este sistema transformará o WhatsApp da GVG em uma máquina de qualificação de leads — disponível 24/7, sem risco de banimento, com cada conversa documentada no CRM e cada campanha rastreada no dashboard.</p>
-      <p>Agradecemos a oportunidade de colaborar com a GVG e nos colocamos à disposição para ajustes ou incrementos nesta proposta. Válida até 17/06/2026.</p>
+      <p>Agradecemos a oportunidade de colaborar com a GVG. Nos colocamos à disposição para ajustes ou incrementos nesta proposta. Válida até 17/06/2026.</p>
     </div>
   </div>
 </section>
 
 <!-- ══ CONTATO ════════════════════════════════════════════════ -->
 <section id="contato">
-  <div class="container">
-    <div class="section-header">
-      <span class="badge">Contato</span>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Contato</span>
       <h2>Para dúvidas,<br>entre em contato</h2>
     </div>
 
-    <div class="cred-card">
-      <h3>HASH Tecnologia / Automatrix</h3>
-      <ul class="cred-list">
-        <li>Provedor Autenticado de Tecnologia Meta (Meta Auth Partner)</li>
-        <li>Membro Google Developers Program</li>
-        <li>Certificado em Model Context Protocol pela Anthropic</li>
-        <li>Especialista em N8N, OpenClaw e WhatsApp Cloud API</li>
-      </ul>
+    <div class="cred-strip reveal">
+      <h4>HASH Tecnologia / Automatrix</h4>
+      <span class="cred-badge">Meta Auth Partner</span>
+      <span class="cred-badge">Google Developers Program</span>
+      <span class="cred-badge">Anthropic MCP Certified</span>
+      <span class="cred-badge">N8N · OpenClaw · WhatsApp API Specialist</span>
     </div>
 
-    <div class="contact-grid">
+    <div class="contact-grid reveal">
       <div class="contact-card">
         <label>📱 Telefone</label>
         <a href="tel:+5521988407505">+55 (21) 98840-7505</a>
@@ -520,26 +756,69 @@
       </div>
       <div class="contact-card">
         <label>📷 Instagram</label>
-        <a href="https://instagram.com/automatrix.ia" target="_blank">@automatrix.ia</a>
+        <a href="https://instagram.com/automatrix.ia" target="_blank" rel="noopener">@automatrix.ia</a>
       </div>
       <div class="contact-card">
-        <label>📍 Endereço</label>
-        <span>Magalhães Araújo 320</span>
-        <span>Jd Guedala — São Paulo-SP</span>
+        <label>📍 Localização</label>
+        <span>Jd Guedala</span>
+        <span>São Paulo — SP</span>
       </div>
     </div>
 
-    <div style="text-align:center; margin-top:48px;">
-      <a href="mailto:lucas@automatrix-ia.com?subject=Proposta GVG SDR WhatsApp&body=Olá Lucas, tenho interesse na proposta." class="btn btn-green" style="font-size:1rem; padding:16px 36px;">
-        Aceitar proposta — lucas@automatrix-ia.com
+    <div class="cta-final reveal">
+      <span class="tag">Válida até 17/06/2026</span>
+      <h2>Pronto para transformar<br>o WhatsApp da GVG?</h2>
+      <p>Um SDR que nunca dorme, nunca bane e entrega cada conversa documentada ao Closer certo.</p>
+      <a href="mailto:lucas@automatrix-ia.com?subject=Aceito%20a%20proposta%20GVG%20SDR%20WhatsApp&body=Ol%C3%A1%20Lucas%2C%20tenho%20interesse%20em%20avan%C3%A7ar%20com%20a%20proposta." class="btn btn-primary" style="font-size:1rem;padding:16px 40px">
+        Aceitar proposta →
       </a>
+      <div class="cta-validity">R$ 8.000 setup · R$ 3.000/mês · GO LIVE em 30 dias</div>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>Automatrix © 2026 · Inteligência Artificial · Proposta válida até 17/06/2026</p>
+  <p>Automatrix © 2026 · Inteligência Artificial · Proposta confidencial para GVG — Grupo Vládia Gonçalves</p>
 </footer>
 
+<script>
+// ── Scroll reveal ──────────────────────────────────────────────
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})
+},{threshold:.1,rootMargin:'0px 0px -40px 0px'})
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el))
+
+// ── Counter animation ──────────────────────────────────────────
+const counters=document.querySelectorAll('.num[data-target]')
+const cio=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return
+    const el=e.target,target=+el.dataset.target,dur=1400
+    let start=null
+    function step(ts){
+      if(!start)start=ts
+      const p=Math.min((ts-start)/dur,1)
+      const ease=1-Math.pow(1-p,3)
+      el.textContent=Math.round(ease*target)
+      if(p<1)requestAnimationFrame(step)
+      else el.textContent=target
+    }
+    requestAnimationFrame(step)
+    cio.unobserve(el)
+  })
+},{threshold:.5})
+counters.forEach(c=>cio.observe(c))
+
+// ── Animate flow arrows sequentially ──────────────────────────
+const flowLines=document.querySelectorAll('.flow-arrow-line,.flow-arrow-vline')
+flowLines.forEach((l,i)=>{
+  l.style.animationDelay=`${i*0.3}s`
+})
+
+// Trigger initial reveal for above-fold elements
+document.querySelectorAll('#hero .reveal').forEach(el=>{
+  setTimeout(()=>el.classList.add('visible'),100+[...document.querySelectorAll('#hero .reveal')].indexOf(el)*120)
+})
+</script>
 </body>
 </html>
