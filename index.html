@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proposta SDR Inteligente via WhatsApp — Automatrix × GVG</title>
+  <meta name="description" content="Proposta comercial: SDR Inteligente via WhatsApp para GVG — Grupo Vládia Gonçalves. Automatrix Inteligência Artificial." />
+  <style>
+    :root {
+      --bg: #1e1e1e;
+      --card: #2b2b2b;
+      --card2: #323232;
+      --green: #22c55e;
+      --green-l: #4ade80;
+      --white: #f9fafb;
+      --gray: #d1d5db;
+      --gray-dim: #9ca3af;
+      --gray-dark: #6b7280;
+      --yellow: #fbbf24;
+      --orange: #f97316;
+      --red: #ef4444;
+      --blue: #60a5fa;
+      --purple: #a78bfa;
+      --radius: 10px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--white); font-family: var(--font); line-height: 1.6; }
+
+    /* ── Typography ── */
+    h1 { font-size: clamp(2.4rem, 6vw, 5rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 800; line-height: 1.1; }
+    h3 { font-size: 1.1rem; font-weight: 700; }
+    p  { color: var(--gray); font-size: 0.95rem; }
+
+    /* ── Layout ── */
+    .container { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 80px 0; }
+    section + section { border-top: 1px solid #333; }
+
+    /* ── Badges / Tags ── */
+    .badge { display: inline-block; background: #1a3a28; color: var(--green); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; border: 1px solid #22c55e44; }
+
+    /* ── Buttons ── */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; }
+    .btn-green { background: var(--green); color: #111; }
+    .btn-green:hover { background: var(--green-l); transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: var(--white); border: 1.5px solid #444; }
+    .btn-outline:hover { border-color: var(--green); color: var(--green); }
+
+    /* ── HERO ── */
+    #hero { padding: 0; min-height: 100vh; display: flex; flex-direction: column; }
+    .hero-bar { background: #111; padding: 14px 1.5rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #2a2a2a; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon { width: 32px; height: 32px; background: var(--green); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1rem; color: #111; }
+    .logo-text { font-weight: 800; font-size: 0.9rem; color: var(--white); letter-spacing: 0.05em; }
+    .logo-sub { font-size: 0.68rem; color: var(--gray-dim); display: block; }
+    .nav-year { background: var(--card); border-radius: 6px; padding: 6px 14px; font-weight: 700; font-size: 1rem; color: var(--white); }
+
+    .hero-content { flex: 1; display: flex; align-items: center; padding: 60px 1.5rem 80px; }
+    .hero-inner { max-width: 960px; margin: 0 auto; width: 100%; }
+    .hero-label { margin-bottom: 24px; }
+    .hero-title { margin-bottom: 20px; }
+    .hero-title .accent { color: var(--green); }
+    .hero-subtitle { font-size: 1.2rem; color: var(--gray); max-width: 560px; margin-bottom: 40px; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 32px; margin-bottom: 48px; }
+    .hero-meta-item label { font-size: 0.75rem; color: var(--gray-dim); text-transform: uppercase; letter-spacing: 0.07em; display: block; margin-bottom: 4px; }
+    .hero-meta-item span { font-weight: 700; font-size: 1rem; color: var(--white); }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-divider { height: 1px; background: linear-gradient(90deg, var(--green), transparent); margin-top: 60px; }
+
+    /* ── VSL VIDEO ── */
+    #vsl { background: #111; padding: 80px 0; }
+    .vsl-placeholder { background: var(--card); border-radius: var(--radius); border: 2px dashed #3a3a3a; padding: 60px 40px; text-align: center; }
+    .vsl-icon { font-size: 3rem; margin-bottom: 16px; }
+    .vsl-placeholder h3 { color: var(--white); margin-bottom: 8px; font-size: 1.2rem; }
+    .vsl-placeholder p { color: var(--gray-dim); font-size: 0.9rem; }
+    .vsl-video { width: 100%; aspect-ratio: 16/9; border-radius: var(--radius); overflow: hidden; background: #000; }
+    .vsl-video video, .vsl-video iframe { width: 100%; height: 100%; display: block; }
+
+    /* ── SECTION HEADERS ── */
+    .section-header { margin-bottom: 48px; }
+    .section-header h2 { margin-top: 12px; }
+    .section-header p { margin-top: 12px; font-size: 1rem; max-width: 540px; }
+
+    /* ── PILLAR CARDS ── */
+    .pillars { display: flex; flex-direction: column; gap: 16px; }
+    .pillar { display: grid; grid-template-columns: 48px 1fr; gap: 20px; background: var(--card); border-radius: var(--radius); padding: 24px; border: 1px solid #3a3a3a; transition: border-color 0.2s; }
+    .pillar:hover { border-color: var(--green); }
+    .pillar-num { width: 48px; height: 48px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.85rem; color: #111; flex-shrink: 0; }
+    .pillar h3 { font-size: 1.1rem; color: var(--white); margin-bottom: 8px; }
+    .pillar p { font-size: 0.92rem; }
+
+    /* ── FEATURES GRID ── */
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+    .feature { background: var(--card); border-radius: 8px; padding: 20px; border-left: 3px solid var(--green); }
+    .feature-label { font-size: 0.72rem; font-weight: 700; color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+    .feature h3 { font-size: 0.95rem; color: var(--white); margin-bottom: 8px; }
+    .feature p { font-size: 0.85rem; }
+
+    /* ── FLOW DIAGRAM ── */
+    .flow { display: flex; flex-direction: column; gap: 0; max-width: 680px; margin: 0 auto; }
+    .flow-step { display: grid; grid-template-columns: 120px 1fr; gap: 0; }
+    .flow-left { display: flex; flex-direction: column; align-items: center; }
+    .flow-dot { width: 40px; height: 40px; border-radius: 50%; background: var(--green); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.8rem; color: #111; flex-shrink: 0; z-index: 1; }
+    .flow-line { flex: 1; width: 2px; background: #3a3a3a; }
+    .flow-last .flow-line { display: none; }
+    .flow-content { background: var(--card); border-radius: 8px; padding: 16px 20px; margin: 0 0 12px 0; border: 1px solid #3a3a3a; }
+    .flow-content h3 { font-size: 0.95rem; color: var(--green); margin-bottom: 4px; }
+    .flow-content p { font-size: 0.85rem; }
+
+    .rule-card { background: var(--card2); border-radius: var(--radius); padding: 24px; border-left: 4px solid var(--green); margin-top: 32px; }
+    .rule-card strong { color: var(--green); display: block; margin-bottom: 6px; }
+
+    /* ── ROADMAP ── */
+    .roadmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+    .phase { background: var(--card); border-radius: var(--radius); padding: 24px; position: relative; overflow: hidden; border: 1px solid #3a3a3a; }
+    .phase::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+    .phase-1::before { background: var(--gray-dim); }
+    .phase-2::before { background: var(--yellow); }
+    .phase-3::before { background: var(--orange); }
+    .phase-4::before { background: var(--red); }
+    .phase-num { font-size: 2rem; font-weight: 900; color: var(--white); line-height: 1; margin-bottom: 4px; }
+    .phase-date { font-size: 0.75rem; color: var(--green); font-weight: 700; margin-bottom: 16px; }
+    .phase ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .phase li { font-size: 0.85rem; color: var(--gray); padding-left: 14px; position: relative; }
+    .phase li::before { content: '•'; position: absolute; left: 0; color: var(--green); }
+
+    /* ── PRICING ── */
+    .pricing-table { width: 100%; border-collapse: collapse; border-radius: var(--radius); overflow: hidden; }
+    .pricing-table th { background: #111; color: var(--green); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.07em; padding: 14px 16px; text-align: left; }
+    .pricing-table th:not(:first-child) { text-align: center; }
+    .pricing-table td { padding: 14px 16px; font-size: 0.92rem; border-bottom: 1px solid #2a2a2a; }
+    .pricing-table td:not(:first-child) { text-align: center; }
+    .pricing-table tr:nth-child(even) td { background: var(--card2); }
+    .pricing-table tr:nth-child(odd) td { background: var(--card); }
+    .pricing-table .total td { background: var(--green) !important; color: #111; font-weight: 800; font-size: 1rem; }
+    .pricing-note { font-size: 0.8rem; color: var(--gray-dim); margin-top: 12px; font-style: italic; }
+
+    .stack-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+    .stack-tag { background: var(--card); border: 1px solid #3a3a3a; border-radius: 6px; padding: 5px 12px; font-size: 0.8rem; color: var(--gray); }
+
+    .value-callout { background: var(--card); border-radius: var(--radius); padding: 28px; margin-top: 28px; border-top: 3px solid var(--green); }
+    .value-callout p { font-size: 0.95rem; color: var(--gray); }
+    .value-callout p + p { margin-top: 10px; color: var(--gray-dim); font-size: 0.85rem; font-style: italic; }
+
+    /* ── CONTACT ── */
+    #contact { background: #111; }
+    .cred-card { background: var(--card); border-radius: var(--radius); padding: 28px; margin-bottom: 32px; }
+    .cred-card h3 { color: var(--white); margin-bottom: 16px; }
+    .cred-list { display: flex; flex-direction: column; gap: 8px; }
+    .cred-list li { list-style: none; font-size: 0.9rem; color: var(--gray-dim); padding-left: 18px; position: relative; }
+    .cred-list li::before { content: '✦'; position: absolute; left: 0; color: var(--green); font-size: 0.7rem; top: 2px; }
+
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .contact-card { background: var(--card); border-radius: 8px; padding: 20px; }
+    .contact-card label { font-size: 0.72rem; color: var(--green); font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; display: block; margin-bottom: 8px; }
+    .contact-card a, .contact-card span { display: block; color: var(--white); text-decoration: none; font-size: 0.92rem; }
+    .contact-card a:hover { color: var(--green-l); }
+
+    /* ── FOOTER ── */
+    footer { background: #111; border-top: 1px solid #2a2a2a; padding: 24px 1.5rem; text-align: center; }
+    footer p { font-size: 0.8rem; color: var(--gray-dark); }
+
+    /* ── Scroll anchor offset ── */
+    [id] { scroll-margin-top: 80px; }
+
+    /* ── Mobile ── */
+    @media (max-width: 600px) {
+      .hero-meta { gap: 20px; }
+      .pillar { grid-template-columns: 1fr; }
+      .pillar-num { width: 36px; height: 36px; font-size: 0.75rem; }
+      .flow-step { grid-template-columns: 56px 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ HERO ═══════════════════════════════════════════════════ -->
+<section id="hero">
+  <nav class="hero-bar">
+    <a href="#" class="logo">
+      <div class="logo-icon">A</div>
+      <div>
+        <span class="logo-text">AUTOMATRIX</span>
+        <span class="logo-sub">Inteligência Artificial</span>
+      </div>
+    </a>
+    <div class="nav-year">2026</div>
+  </nav>
+
+  <div class="hero-content">
+    <div class="hero-inner">
+      <div class="hero-label">
+        <span class="badge">Proposta Comercial · Junho 2026</span>
+      </div>
+      <h1 class="hero-title">
+        SDR Inteligente<br>
+        <span class="accent">via WhatsApp</span>
+      </h1>
+      <p class="hero-subtitle">
+        Um agente de vendas disponível 24/7, integrado ao CRM, com rastreamento por campanha e zero risco de banimento — desenvolvido pela Automatrix para a GVG.
+      </p>
+
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <label>Apresentado para</label>
+          <span>GVG — Grupo Vládia Gonçalves</span>
+        </div>
+        <div class="hero-meta-item">
+          <label>Setup</label>
+          <span>R$ 8.000</span>
+        </div>
+        <div class="hero-meta-item">
+          <label>Manutenção</label>
+          <span>R$ 3.000/mês</span>
+        </div>
+        <div class="hero-meta-item">
+          <label>Prazo</label>
+          <span>30 dias</span>
+        </div>
+      </div>
+
+      <div class="hero-btns">
+        <a href="#plano" class="btn btn-green">Ver proposta completa ↓</a>
+        <a href="#contato" class="btn btn-outline">Entrar em contato</a>
+      </div>
+      <div class="hero-divider"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ VSL ════════════════════════════════════════════════════ -->
+<section id="vsl">
+  <div class="container">
+    <div class="section-header" style="text-align:center; max-width:560px; margin:0 auto 40px;">
+      <span class="badge">Apresentação em Vídeo</span>
+      <h2 style="margin-top:12px;">Assista a apresentação completa</h2>
+    </div>
+    <!-- VSL_PLACEHOLDER_START -->
+    <div class="vsl-placeholder" id="vsl-container">
+      <div class="vsl-icon">🎬</div>
+      <h3>Apresentação animada em produção</h3>
+      <p>A VSL narrada da proposta estará disponível em breve nesta página.</p>
+    </div>
+    <!-- VSL_PLACEHOLDER_END -->
+  </div>
+</section>
+
+<!-- ══ PLANO DE AÇÃO ══════════════════════════════════════════ -->
+<section id="plano">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge">Plano de Ação</span>
+      <h2>Três pilares de resultado<br>em 30 dias</h2>
+      <p>Uma arquitetura simples, auditável e sem risco de banimento — do lead ao Closer humano.</p>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">#1</div>
+        <div>
+          <h3>Agente SDR IA no WhatsApp</h3>
+          <p>Disponível 24h por dia, 7 dias por semana, com o tom de voz e os valores da Vládia Gonçalves. Qualifica leads automaticamente — coleta nome, telefone e nome da marca. <strong style="color:var(--white)">NUNCA envia link de pagamento:</strong> toda transação é conduzida exclusivamente pelo Closer humano após diagnóstico consultivo.</p>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-num">#2</div>
+        <div>
+          <h3>Integrações CRM + Agendamento Automático</h3>
+          <p>Pipeline completo integrado: WhatsApp Cloud API → N8N → RD Station CRM + Google Calendar. O Closer recebe o histórico completo de cada conversa antes de qualquer ligação. Toda pergunta sobre preço ou prazo aciona automaticamente um agendamento de 15 minutos.</p>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-num">#3</div>
+        <div>
+          <h3>Dashboard e Analytics em Tempo Real</h3>
+          <p>Painel de conversão no Looker Studio com rastreamento de UTM por campanha do Meta Ads. Volume de leads, taxa de qualificação, conversões por anúncio e funil completo — zero métricas invisíveis, toda jornada documentada.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FUNCIONALIDADES ════════════════════════════════════════ -->
+<section id="funcionalidades">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge">Escopo Base</span>
+      <h2>7 funcionalidades incluídas</h2>
+      <p>Tudo que a GVG precisa para sair do zero ao SDR IA em produção.</p>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <div class="feature-label">F1</div>
+        <h3>WhatsApp Cloud API Oficial</h3>
+        <p>Número verificado Meta Business — zero risco de banimento como a API Zapi anterior. Webhooks com parâmetros UTM por campanha.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-label">F2</div>
+        <h3>Agente SDR com IA 24/7</h3>
+        <p>OpenClaw + GPT-4.1 treinado com o tom de voz da Vládia. Responde instantaneamente, qualifica leads sem parar.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-label">F3</div>
+        <h3>Scripts + Regra de Ouro</h3>
+        <p>Coleta apenas: nome, telefone, nome da marca. Regra inviolável: <strong style="color:var(--white)">SDR NUNCA envia link de pagamento.</strong></p>
+      </div>
+      <div class="feature">
+        <div class="feature-label">F4</div>
+        <h3>N8N → RD Station CRM</h3>
+        <p>Cada conversa registrada em tempo real. Closer entra na reunião com histórico completo — zero briefing, 100% contexto.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-label">F5</div>
+        <h3>Agendamento via Google Calendar</h3>
+        <p>Toda pergunta sobre preço/prazo/viabilidade → reunião de 15 minutos criada automaticamente no Google Calendar.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-label">F6</div>
+        <h3>Dashboard (Looker Studio)</h3>
+        <p>UTM por campanha, taxa de qualificação, funil lead→qualificado→reunião→Closer. Dados que faltavam completamente.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-label">F7</div>
+        <h3>Monitoramento + SLA 30 Dias</h3>
+        <p>Uptime 99,5%, resposta a incidentes críticos em até 2 horas. 30 dias de suporte intensivo incluídos sem custo adicional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ARQUITETURA ════════════════════════════════════════════ -->
+<section id="arquitetura">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge">Arquitetura</span>
+      <h2>Como funciona</h2>
+      <p>Do anúncio no Meta até o Closer humano — nenhum lead perdido.</p>
+    </div>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-dot">1</div><div class="flow-line"></div></div>
+        <div class="flow-content">
+          <h3>Meta Ads → Landing Page</h3>
+          <p>Lead clica no anúncio com UTM de campanha, inicia conversa no WhatsApp.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-dot">2</div><div class="flow-line"></div></div>
+        <div class="flow-content">
+          <h3>WhatsApp Cloud API Oficial</h3>
+          <p>Mensagem recebida via API Meta Business verificada. Rastreamento de UTM ativo por campanha.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-dot">3</div><div class="flow-line"></div></div>
+        <div class="flow-content">
+          <h3>N8N Webhook</h3>
+          <p>Orquestração do fluxo — recebe o evento e aciona o agente SDR IA.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-dot">4</div><div class="flow-line"></div></div>
+        <div class="flow-content">
+          <h3>Agente SDR IA — OpenClaw + GPT-4.1</h3>
+          <p>Conversa com o lead 24/7. Coleta nome, telefone e nome da marca. Jamais envia link de pagamento.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-dot">5</div><div class="flow-line"></div></div>
+        <div class="flow-content">
+          <h3>Google Calendar + RD Station</h3>
+          <p>Agendamento automático de 15 minutos + registro do lead qualificado com histórico no CRM.</p>
+        </div>
+      </div>
+      <div class="flow-step flow-last">
+        <div class="flow-left"><div class="flow-dot" style="background:var(--white);color:#111">✓</div><div class="flow-line"></div></div>
+        <div class="flow-content">
+          <h3>Closer Humano</h3>
+          <p>Diagnóstico consultivo SPIN Selling com contexto completo → proposta → fechamento.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <strong>🔑 Regra de Ouro do SDR</strong>
+      <p>O SDR é um qualificador — nunca um vendedor. O agente coleta apenas nome, telefone e nome da marca. Todo o processo de fechamento e toda transação financeira é exclusividade do Closer humano.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ROADMAP ════════════════════════════════════════════════ -->
+<section id="roadmap">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge">Roadmap</span>
+      <h2>Implementação em 30 dias</h2>
+      <p>4 fases com entregas claras e data de GO LIVE definida.</p>
+    </div>
+
+    <div class="roadmap">
+      <div class="phase phase-1">
+        <div class="phase-num">01</div>
+        <div class="phase-date">Semana 1 · 16–20 Jun</div>
+        <ul>
+          <li>Setup WhatsApp Cloud API</li>
+          <li>Verificação Meta Business</li>
+          <li>Webhooks UTM por campanha</li>
+        </ul>
+      </div>
+      <div class="phase phase-2">
+        <div class="phase-num">02</div>
+        <div class="phase-date">Semana 2 · 23–27 Jun</div>
+        <ul>
+          <li>Agente SDR IA com tom da Vládia</li>
+          <li>Scripts de qualificação</li>
+          <li>Testes internos</li>
+        </ul>
+      </div>
+      <div class="phase phase-3">
+        <div class="phase-num">03</div>
+        <div class="phase-date">Semana 3 · 30 Jun–4 Jul</div>
+        <ul>
+          <li>N8N → RD Station + Calendar</li>
+          <li>Histórico completo ao Closer</li>
+          <li>Testes com leads reais</li>
+        </ul>
+      </div>
+      <div class="phase phase-4">
+        <div class="phase-num">04</div>
+        <div class="phase-date">Semana 4 · 7–11 Jul</div>
+        <ul>
+          <li>Dashboard Looker Studio</li>
+          <li><strong style="color:var(--red)">GO LIVE oficial</strong></li>
+          <li>Monitoramento 24/7 — SLA 2h</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROPOSTA FINANCEIRA ════════════════════════════════════ -->
+<section id="financeiro">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge">Proposta Financeira</span>
+      <h2>Investimento</h2>
+      <p>Setup único + manutenção mensal. Sem taxas ocultas.</p>
+    </div>
+
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th>Entrega</th>
+          <th>Valor Único</th>
+          <th>Manutenção/mês</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Agente SDR IA (OpenClaw + GPT-4.1)</td><td>R$ 2.500</td><td>R$ 1.000</td></tr>
+        <tr><td>WhatsApp Cloud API + N8N</td><td>R$ 2.000</td><td>R$ 800</td></tr>
+        <tr><td>CRM (RD Station) + Google Calendar</td><td>R$ 2.000</td><td>R$ 700</td></tr>
+        <tr><td>Dashboard Analytics (Looker Studio)</td><td>R$ 1.500</td><td>R$ 500</td></tr>
+        <tr class="total"><td>TOTAL</td><td>R$ 8.000</td><td>R$ 3.000/mês</td></tr>
+      </tbody>
+    </table>
+    <p class="pricing-note">* A manutenção mensal inicia após entrega final e aprovação da plataforma.</p>
+
+    <div class="stack-tags">
+      <span class="stack-tag">WhatsApp Cloud API</span>
+      <span class="stack-tag">N8N</span>
+      <span class="stack-tag">OpenClaw</span>
+      <span class="stack-tag">GPT-4.1</span>
+      <span class="stack-tag">RD Station</span>
+      <span class="stack-tag">Google Calendar</span>
+      <span class="stack-tag">Looker Studio</span>
+      <span class="stack-tag">Meta Ads</span>
+    </div>
+
+    <div class="value-callout">
+      <p>Este sistema transformará o WhatsApp da GVG em uma máquina de qualificação de leads — disponível 24/7, sem risco de banimento, com cada conversa documentada no CRM e cada campanha rastreada no dashboard.</p>
+      <p>Agradecemos a oportunidade de colaborar com a GVG e nos colocamos à disposição para ajustes ou incrementos nesta proposta. Válida até 17/06/2026.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTATO ════════════════════════════════════════════════ -->
+<section id="contato">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge">Contato</span>
+      <h2>Para dúvidas,<br>entre em contato</h2>
+    </div>
+
+    <div class="cred-card">
+      <h3>HASH Tecnologia / Automatrix</h3>
+      <ul class="cred-list">
+        <li>Provedor Autenticado de Tecnologia Meta (Meta Auth Partner)</li>
+        <li>Membro Google Developers Program</li>
+        <li>Certificado em Model Context Protocol pela Anthropic</li>
+        <li>Especialista em N8N, OpenClaw e WhatsApp Cloud API</li>
+      </ul>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <label>📱 Telefone</label>
+        <a href="tel:+5521988407505">+55 (21) 98840-7505</a>
+        <a href="tel:+5519994728845">+55 (19) 99472-8845</a>
+      </div>
+      <div class="contact-card">
+        <label>✉ Email</label>
+        <a href="mailto:lucas@automatrix-ia.com">lucas@automatrix-ia.com</a>
+      </div>
+      <div class="contact-card">
+        <label>📷 Instagram</label>
+        <a href="https://instagram.com/automatrix.ia" target="_blank">@automatrix.ia</a>
+      </div>
+      <div class="contact-card">
+        <label>📍 Endereço</label>
+        <span>Magalhães Araújo 320</span>
+        <span>Jd Guedala — São Paulo-SP</span>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:48px;">
+      <a href="mailto:lucas@automatrix-ia.com?subject=Proposta GVG SDR WhatsApp&body=Olá Lucas, tenho interesse na proposta." class="btn btn-green" style="font-size:1rem; padding:16px 36px;">
+        Aceitar proposta — lucas@automatrix-ia.com
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Automatrix © 2026 · Inteligência Artificial · Proposta válida até 17/06/2026</p>
+</footer>
+
+</body>
+</html>
